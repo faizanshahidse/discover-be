@@ -1,0 +1,50 @@
+{
+  "name": "discover-be",
+  "version": "0.0.1",
+  "description": "433 Home of Football Discover module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon index.js",
+    "dev:debug": "nodemon --inspect=0.0.0.0:9229 index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JOGO-FOOTBALL/discover-be"
+  },
+  "keywords": [
+    "jogo.ai",
+    "433",
+    "discover",
+    "discover-be"
+  ],
+  "author": "syedahmedhaidershah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JOGO-FOOTBALL/discover-be"
+  },
+  "homepage": "https://github.com/JOGO-FOOTBALL/discover-be#readme",
+  "dependencies": {
+    "@knuckleswtf/scribe-express": "^2.0.2",
+    "@sentry/node": "^7.1.1",
+    "aws-sdk": "^2.1035.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.2.0",
+    "express-list-endpoints": "^6.0.0",
+    "express-validator": "^6.13.0",
+    "feed_media_433": "github:JOGO-FOOTBALL/HOMEMEDIA-Backend",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "mongoose": "^6.2.1",
+    "morgan": "^1.10.0",
+    "nocache": "^3.0.4",
+    "nodemon": "^2.0.18",
+    "serverless-http": "^2.7.0",
+    "serverless-plugin-scripts": "^1.0.2",
+    "serverless-prune-plugin": "^2.0.1"
+  }
+}

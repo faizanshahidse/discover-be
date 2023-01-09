@@ -1,0 +1,293 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "dev.search.api.by433.com"
+        }
+    ],
+    "info": {
+        "name": "Search Module Documentation",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "ae6245c1-e149-4895-bd0d-5428d2d6500b"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "item": [
+                {
+                    "name": "Search All",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/search-all",
+                            "query": [
+                                {
+                                    "key": "keyword",
+                                    "value": "animi",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "43698",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "from",
+                                    "value": "99065",
+                                    "description": "(minimum 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "module",
+                                    "value": "voluptate",
+                                    "description": "(users || articles || medias || players || teams || leagues || all)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://{{baseUrl}}/api/search-all?keyword=animi&limit=43698&from=99065&module=voluptate"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "For searching all results.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n        \"response\": true,\n        \"status_code\": 200,\n        \"message\": \"Listing search result\",\n        \"error_msgs\": {},\n        \"data\": {\n            \"users_data\": {\n                \"total_records\": 32,\n                \"users\": [\n                    {\n                        \"id\": \"622a851594d3e275ee03c425\",\n                        \"first_name\": \"Aadasdsa\",\n                        \"last_name\": \"Kodu\",\n                        \"gender\": null,\n                        \"username\": \"adkfddsamf\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"621772b72bb577af948b318d\",\n                        \"first_name\": \"Ali\",\n                        \"last_name\": \"Ahmed\",\n                        \"gender\": 1,\n                        \"username\": \"ali666\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"621e0eabcd8840dd1240d813\",\n                        \"first_name\": \"Ali\",\n                        \"last_name\": \"Mehdidio\",\n                        \"gender\": null,\n                        \"username\": \"maddy\",\n                        \"profile_picture\": \"media/profile_picture/1647952721820_9807130.jpeg\",\n                        \"friendship_status\": 2,\n                        \"request_id\": \"623990a46755e7312460c58b\"\n                    },\n                    {\n                        \"id\": \"621e315b4daa12e712d20f4a\",\n                        \"first_name\": \"Asad\",\n                        \"last_name\": \"Zaidi\",\n                        \"gender\": null,\n                        \"username\": \"mongouserasad\",\n                        \"profile_picture\": \"media/profile_picture/1647436922189_3770546.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6231b90bb0c822ea690d2509\",\n                        \"first_name\": \"Asad\",\n                        \"last_name\": \"Raza Zaidi\",\n                        \"gender\": null,\n                        \"username\": \"fbasad\",\n                        \"profile_picture\": \"media/profile_picture/1647939699462_9030222.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6229f775462699a4b9727c4d\",\n                        \"first_name\": \"Baran\",\n                        \"last_name\": \"Erdogan\",\n                        \"gender\": null,\n                        \"username\": \"baranerdogan97\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 1,\n                        \"request_id\": \"623842fa36c38068fe3f1e97\"\n                    },\n                    {\n                        \"id\": \"621e245119ff6f3d35c32d50\",\n                        \"first_name\": \"Christiano\",\n                        \"last_name\": \"Ronaldo\",\n                        \"gender\": 1,\n                        \"username\": \"alikaranimessi\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6235877ee5cc85e4da63ff5e\",\n                        \"first_name\": \"David\",\n                        \"last_name\": \"Dwinger\",\n                        \"gender\": 1,\n                        \"username\": \"dwinger74\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"62207797465d76faae4e2af8\",\n                        \"first_name\": \"Fami\",\n                        \"last_name\": \"Jogo\",\n                        \"gender\": 2,\n                        \"username\": \"famisultana\",\n                        \"profile_picture\": \"media/profile_picture/1646988817841_6305744.jpeg\",\n                        \"friendship_status\": 1,\n                        \"request_id\": \"623a422031d7d4b1420b4716\"\n                    },\n                    {\n                        \"id\": \"62207559465d76faae4e2ae6\",\n                        \"first_name\": \"Fatima\",\n                        \"last_name\": \"Sultana\",\n                        \"gender\": null,\n                        \"username\": \"fami_facebook\",\n                        \"profile_picture\": \"media/profile_picture/1646308567851_2928944.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    }\n                ]\n            },\n            \"articles_data\": {\n                \"total_records\": 0,\n                \"articles\": []\n            },\n            \"medias_data\": {\n            \"total_records\": 1,\n            \"medias\":\n                [\n                    {\n                        \"id\": \"629ef7c441ba7c4d704efe4b\",\n                        \"cover_image\": \"media/photos/330445b7-6624-4a18-a97e-4d0a18b4ccff.jpeg\",\n                        \"media_url\": \"media/audio/6fd6bcdd-689b-4239-b1dd-d8efced7b433.mp3\",\n                        \"media_type\": \"Listen\",\n                        \"description\": \"We spoke with six different people who worked with Erik ten Hag, from the day he put his pants on backwards at his first coaching job at Go Ahead Eagles, to the way he dealt with a tough personal situation at FC Utrecht, and the night he destroyed Real Madrid at the Santiago Bernabeu stadium with Ajax. This is the calculated rise of Erik ten Hag.\",\n                        \"created_at\": \"2022-06-07T07:15:30.679Z\",\n                        \"category\": {\n                            \"id\": \"620f699bd2c5aa80fec4b31b\",\n                            \"name\": \"Podcasts\",\n                            \"slug\": \"podcasts\"\n                        },\n                        \"parent\": {\n                            \"id\": \"620f693c7b8e2cf0c58246e7\"\n                            \"name\": \"Listen\",\n                            \"slug\": \"listen\"\n                        }\n                    }\n                ]\n            },\n            \"games_data\": {\n                \"total_records\": 0,\n                \"games\": []\n            },\n            \"filtered_data\": {\n                \"total_records\": 0,\n                \"records\": []\n            },\n            \"players_data\": {\n            \"total_records\": 5,\n            \"players\": [\n                {\n                    \"id\": \"26166\",\n                    \"name\": \"Karim Benzema\",\n                    \"position\": \"forward\",\n                    \"player_club_name\": \"Real Madrid\"\n                },\n                {\n                    \"id\": \"873573\",\n                    \"name\": \"Sam Beukema\",\n                    \"position\": \"defender\",\n                    \"player_club_name\": \"AZ Alkmaar\"\n                },\n                {\n                    \"id\": \"680028\",\n                    \"name\": \"Jan Bekkema\",\n                    \"position\": \"keeper\",\n                    \"player_club_name\": \"SC Heerenveen\"\n                },\n                {\n                    \"id\": \"319822\",\n                    \"name\": \"Yassine Benzia\",\n                    \"position\": \"forward\"\n                },\n                {\n                    \"id\": \"433489\",\n                    \"name\": \"Markas Beneta\",\n                    \"position\": \"midfielder\",\n                    \"player_club_name\": \"Suduva\"\n                }\n            ]\n        },\n         \"teams_data\": {\n            \"total_records\": 12,\n            \"teams\": [\n                {\n                    \"id\": \"10031\",\n                    \"name\": \"Laci\",\n                    \"country\": \"Albania\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/10031.png\"\n                },\n                {\n                    \"id\": \"6606\",\n                    \"name\": \"Real Salt Lake\",\n                    \"country\": \"USA\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/6606.png\"\n                },\n                {\n                    \"id\": \"8543\",\n                    \"name\": \"Lazio\",\n                    \"country\": \"Italy\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/8543.png\"\n                },\n                {\n                    \"id\": \"784763\",\n                    \"name\": \"Llapi\",\n                    \"country\": \"Kosovo\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/784763.png\"\n                },\n                {\n                    \"id\": \"9977\",\n                    \"name\": \"LASK\",\n                    \"country\": \"Austria\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/9977.png\"\n                },\n                {\n                    \"id\": \"8152\",\n                    \"name\": \"St. Pauli\",\n                    \"country\": \"Germany\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/8152.png\"\n                },\n                {\n                    \"id\": \"175654\",\n                    \"name\": \"Bala Town\",\n                    \"country\": \"Wales\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/175654.png\"\n                },\n                {\n                    \"id\": \"9799\",\n                    \"name\": \"Port Vale\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/9799.png\"\n                },\n                {\n                    \"id\": \"580434\",\n                    \"name\": \"Raynes Park Vale\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/580434.png\"\n                },\n                {\n                    \"id\": \"674339\",\n                    \"name\": \"Shaw Lane AFC\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/674339.png\"\n                },\n                {\n                    \"id\": \"6637\",\n                    \"name\": \"LA Galaxy\",\n                    \"country\": \"USA\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/6637.png\"\n                },\n                {\n                    \"id\": \"163541\",\n                    \"name\": \"La Fiorita Montegiardino\",\n                    \"country\": \"San Marino\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/163541.png\"\n                }\n            ]\n        },\n        \"leagues_data\": {\n            \"total_records\": 1,\n            \"leagues\": [\n                {\n                    \"id\": \"87\",\n                    \"name\": \"LaLiga\",\n                    \"country\": \"Spain\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/league/87.png\"\n                }\n            ]\n        }\n        }\n    }",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Add User Visited Content Logs",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/add-user-visited-content-logs",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/api/add-user-visited-content-logs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"type\": \"article.\",\n    \"contentId\": \"6238369affca207dcd033724\"\n}"
+                        },
+                        "description": "For user visited content logs creation",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n        \"response\": true,\n        \"status_code\": 200,\n        \"message\": \"Logs added successfully!\",\n        \"error_msgs\": {},\n        \"data\": {\n            \"addedLog\": {\n                \"_id\": \"62f3d080cb24c827aaf90f6d\",\n                \"contentId\": \"6238369affca207dcd033724\",\n                \"userId\": \"62b4114ce20391694ee7892e\",\n                \"type\": \"article\",\n                \"createdAt\": \"2022-08-10T15:36:33.019Z\",\n                \"updatedAt\": \"2022-08-10T15:36:33.019Z\",\n            }\n        }\n    }",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get User Visited Content Logs",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/get-user-visited-content-logs",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/api/get-user-visited-content-logs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "For get user visited content logs",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"response\": true,\n    \"status_code\": 200,\n    \"message\": \"Logs get successfully!\",\n    \"error_msgs\": {},\n    \"data\": {\n        \"contents\": [\n            {\n                \"id\": \"623c645776bc48bd0c3e67dc\",\n                \"title\": \"123456789 hello hey bye\",\n                \"cover_image\": {\n                    \"portrait\": {\n                        \"image_url\": \"media/photos/8c503f7b-89d3-4aff-a38b-050f60c118da.jpeg\",\n                        \"width\": 0,\n                        \"height\": 0\n                    },\n                    \"landscape\": {\n                        \"image_url\": \"media/photos/8c503f7b-89d3-4aff-a38b-050f60c118da.jpeg\",\n                        \"width\": 0,\n                        \"height\": 0\n                    }\n                },\n                \"media_url\": \"media/vids/1648124937266_1080p.mp4\",\n                \"media_type\": \"Watch\",\n                \"userVisitedContentLogId\": \"62f538729977d05262bd2415\",\n                \"description\": \"123\",\n                \"created_at\": \"2022-03-24T12:30:15.285Z\",\n                \"category\": {\n                    \"id\": \"6225cb30dfda7d7d64704850\",\n                    \"name\": \"Promises\",\n                    \"slug\": \"promises\"\n                },\n                \"parent\": {\n                    \"id\": \"620f692c5914ffddae36368b\",\n                    \"name\": \"Watch\",\n                    \"slug\": \"watch\"\n                },\n                \"type\": \"media\"\n            },\n            {\n                \"id\": \"6238369affca207dcd033724\",\n                \"title\": \"hey ham burger\",\n                \"image\": \"media/photos/185965d1-6aa3-4128-82d7-86f15bb622e8.png\",\n                \"userVisitedContentLogId\": \"62f3d080cb24c827aaf90f6d\",\n                \"created_at\": \"2022-03-21T08:26:02.463Z\",\n                \"type\": \"article\"\n            },\n            {\n                \"id\": \"6225c48108451f58730b099c\",\n                \"title\": \"videotwo\",\n                \"cover_image\": {\n                    \"portrait\": {\n                        \"image_url\": \"media/photos/4de330d5-7e1e-4533-a720-265166267e68.png\",\n                        \"width\": 0,\n                        \"height\": 0\n                    },\n                    \"landscape\": {\n                        \"image_url\": \"media/photos/4de330d5-7e1e-4533-a720-265166267e68.png\",\n                        \"width\": 0,\n                        \"height\": 0\n                    }\n                },\n                \"media_url\": \"media/vids/1646642292725_1080p.mp4\",\n                \"media_type\": \"Watch\",\n                \"userVisitedContentLogId\": \"62eba897c0211741cf2ed0d3\",\n                \"description\": \"h\",\n                \"created_at\": \"2022-03-07T08:38:25.285Z\",\n                \"category\": {\n                    \"id\": \"620f696edff44b4db86892a3\",\n                    \"name\": \"Homegrown\",\n                    \"slug\": \"homegrown\"\n                },\n                \"parent\": {\n                    \"id\": \"620f692c5914ffddae36368b\",\n                    \"name\": \"Watch\",\n                    \"slug\": \"watch\"\n                },\n                \"type\": \"media\"\n            },\n            {\n                \"id\": \"6225c3fc08451f58730b0985\",\n                \"title\": \"videotwo\",\n                \"cover_image\": {\n                    \"portrait\": {\n                        \"image_url\": \"media/photos/ebd1dbdd-ad93-47bf-9c4f-04c7c537e210.png\",\n                        \"width\": 0,\n                        \"height\": 0\n                    },\n                    \"landscape\": {\n                        \"image_url\": \"media/photos/ebd1dbdd-ad93-47bf-9c4f-04c7c537e210.png\",\n                        \"width\": 0,\n                        \"height\": 0\n                    }\n                },\n                \"media_url\": \"media/vids/1646642158237_1080p.mp4\",\n                \"media_type\": \"Watch\",\n                \"userVisitedContentLogId\": \"62eba5fcc0211741cf2ed0c3\",\n                \"description\": \"testing\",\n                \"created_at\": \"2022-03-07T08:36:12.120Z\",\n                \"category\": {\n                    \"id\": \"620f696edff44b4db86892a3\",\n                    \"name\": \"Homegrown\",\n                    \"slug\": \"homegrown\"\n                },\n                \"parent\": {\n                    \"id\": \"620f692c5914ffddae36368b\",\n                    \"name\": \"Watch\",\n                    \"slug\": \"watch\"\n                },\n                \"type\": \"media\"\n            },\n            {\n                \"id\": \"622f50d13488b3fc367bd056\",\n                \"title\": \"Abc hello\",\n                \"image\": \"media/photos/cc6240c1-7558-452e-bb21-a3f04f302098.jpeg\",\n                \"userVisitedContentLogId\": \"62eba58cc0211741cf2ed0bd\",\n                \"created_at\": \"2022-03-14T14:27:29.827Z\",\n                \"type\": \"article\"\n            }\n        ]\n    }\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get User Search Logs",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/get-user-search-logs",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/api/get-user-search-logs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "For get user search logs",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n        \"response\": true,\n        \"status_code\": 200,\n        \"message\": \"Logs get successfully!\",\n        \"error_msgs\": {},\n        \"data\": {\n            \"searchLogs\": [\n            {\n                \"searchText\": \"Benzema\",\n                \"type\": \"all\",\n                \"userSearchLogId\": \"62e79901c512492cd122fa66\",\n                \"createdAt\": \"2022-08-01T09:12:33.915Z\",\n                \"updatedAt\": \"2022-08-01T09:52:08.321Z\"\n            },\n            {\n                \"searchText\": \"Kaka\",\n                \"type\": \"all\",\n                \"userSearchLogId\": \"62e7997ec512492cd122fa99\",\n                \"createdAt\": \"2022-08-01T09:14:38.737Z\",\n                \"updatedAt\": \"2022-08-01T09:14:38.737Z\"\n            },\n        ]\n        }\n    }",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/clear-user-search-logs",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/api/clear-user-search-logs"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Search All V2",
+            "item": [
+                {
+                    "name": "Search All",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api/v2/search-all",
+                            "query": [
+                                {
+                                    "key": "keyword",
+                                    "value": "exercitationem",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "55468",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "from",
+                                    "value": "45507",
+                                    "description": "(minimum 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "module",
+                                    "value": "corrupti",
+                                    "description": "(users || articles || medias || players || teams || leagues || contentCreators || all)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "https://{{baseUrl}}/api/v2/search-all?keyword=exercitationem&limit=55468&from=45507&module=corrupti"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "For searching all results.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n        \"response\": true,\n        \"status_code\": 200,\n        \"message\": \"Listing search result\",\n        \"error_msgs\": {},\n        \"data\": {\n            \"all_records_count\": 146,\n            \"users\": {\n                \"total_records\": 32,\n                \"data\": [\n                    {\n                        \"id\": \"622a851594d3e275ee03c425\",\n                        \"first_name\": \"Aadasdsa\",\n                        \"last_name\": \"Kodu\",\n                        \"gender\": null,\n                        \"username\": \"adkfddsamf\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"621772b72bb577af948b318d\",\n                        \"first_name\": \"Ali\",\n                        \"last_name\": \"Ahmed\",\n                        \"gender\": 1,\n                        \"username\": \"ali666\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"621e0eabcd8840dd1240d813\",\n                        \"first_name\": \"Ali\",\n                        \"last_name\": \"Mehdidio\",\n                        \"gender\": null,\n                        \"username\": \"maddy\",\n                        \"profile_picture\": \"media/profile_picture/1647952721820_9807130.jpeg\",\n                        \"friendship_status\": 2,\n                        \"request_id\": \"623990a46755e7312460c58b\"\n                    },\n                    {\n                        \"id\": \"621e315b4daa12e712d20f4a\",\n                        \"first_name\": \"Asad\",\n                        \"last_name\": \"Zaidi\",\n                        \"gender\": null,\n                        \"username\": \"mongouserasad\",\n                        \"profile_picture\": \"media/profile_picture/1647436922189_3770546.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6231b90bb0c822ea690d2509\",\n                        \"first_name\": \"Asad\",\n                        \"last_name\": \"Raza Zaidi\",\n                        \"gender\": null,\n                        \"username\": \"fbasad\",\n                        \"profile_picture\": \"media/profile_picture/1647939699462_9030222.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6229f775462699a4b9727c4d\",\n                        \"first_name\": \"Baran\",\n                        \"last_name\": \"Erdogan\",\n                        \"gender\": null,\n                        \"username\": \"baranerdogan97\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 1,\n                        \"request_id\": \"623842fa36c38068fe3f1e97\"\n                    },\n                    {\n                        \"id\": \"621e245119ff6f3d35c32d50\",\n                        \"first_name\": \"Christiano\",\n                        \"last_name\": \"Ronaldo\",\n                        \"gender\": 1,\n                        \"username\": \"alikaranimessi\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"6235877ee5cc85e4da63ff5e\",\n                        \"first_name\": \"David\",\n                        \"last_name\": \"Dwinger\",\n                        \"gender\": 1,\n                        \"username\": \"dwinger74\",\n                        \"profile_picture\": null,\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    },\n                    {\n                        \"id\": \"62207797465d76faae4e2af8\",\n                        \"first_name\": \"Fami\",\n                        \"last_name\": \"Jogo\",\n                        \"gender\": 2,\n                        \"username\": \"famisultana\",\n                        \"profile_picture\": \"media/profile_picture/1646988817841_6305744.jpeg\",\n                        \"friendship_status\": 1,\n                        \"request_id\": \"623a422031d7d4b1420b4716\"\n                    },\n                    {\n                        \"id\": \"62207559465d76faae4e2ae6\",\n                        \"first_name\": \"Fatima\",\n                        \"last_name\": \"Sultana\",\n                        \"gender\": null,\n                        \"username\": \"fami_facebook\",\n                        \"profile_picture\": \"media/profile_picture/1646308567851_2928944.jpeg\",\n                        \"friendship_status\": 0,\n                        \"request_id\": \"\"\n                    }\n                ]\n            },\n            \"articles\": {\n                \"total_records\": 0,\n                \"data\": []\n            },\n            \"medias\": {\n            \"total_records\": 1,\n            \"data\":\n                [\n                    {\n                        \"id\": \"629ef7c441ba7c4d704efe4b\",\n                        \"cover_image\": \"media/photos/330445b7-6624-4a18-a97e-4d0a18b4ccff.jpeg\",\n                        \"media_url\": \"media/audio/6fd6bcdd-689b-4239-b1dd-d8efced7b433.mp3\",\n                        \"media_type\": \"Listen\",\n                        \"description\": \"We spoke with six different people who worked with Erik ten Hag, from the day he put his pants on backwards at his first coaching job at Go Ahead Eagles, to the way he dealt with a tough personal situation at FC Utrecht, and the night he destroyed Real Madrid at the Santiago Bernabeu stadium with Ajax. This is the calculated rise of Erik ten Hag.\",\n                        \"created_at\": \"2022-06-07T07:15:30.679Z\",\n                        \"category\": {\n                            \"id\": \"620f699bd2c5aa80fec4b31b\",\n                            \"name\": \"Podcasts\",\n                            \"slug\": \"podcasts\"\n                        },\n                        \"parent\": {\n                            \"id\": \"620f693c7b8e2cf0c58246e7\"\n                            \"name\": \"Listen\",\n                            \"slug\": \"listen\"\n                        }\n                    }\n                ]\n            },\n            \"players\": {\n            \"total_records\": 5,\n            \"data\": [\n                {\n                    \"id\": \"26166\",\n                    \"name\": \"Karim Benzema\",\n                    \"position\": \"forward\",\n                    \"player_club_name\": \"Real Madrid\"\n                },\n                {\n                    \"id\": \"873573\",\n                    \"name\": \"Sam Beukema\",\n                    \"position\": \"defender\",\n                    \"player_club_name\": \"AZ Alkmaar\"\n                },\n                {\n                    \"id\": \"680028\",\n                    \"name\": \"Jan Bekkema\",\n                    \"position\": \"keeper\",\n                    \"player_club_name\": \"SC Heerenveen\"\n                },\n                {\n                    \"id\": \"319822\",\n                    \"name\": \"Yassine Benzia\",\n                    \"position\": \"forward\"\n                },\n                {\n                    \"id\": \"433489\",\n                    \"name\": \"Markas Beneta\",\n                    \"position\": \"midfielder\",\n                    \"player_club_name\": \"Suduva\"\n                }\n            ]\n        },\n         \"teams\": {\n            \"total_records\": 12,\n            \"data\": [\n                {\n                    \"id\": \"10031\",\n                    \"name\": \"Laci\",\n                    \"country\": \"Albania\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/10031.png\"\n                },\n                {\n                    \"id\": \"6606\",\n                    \"name\": \"Real Salt Lake\",\n                    \"country\": \"USA\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/6606.png\"\n                },\n                {\n                    \"id\": \"8543\",\n                    \"name\": \"Lazio\",\n                    \"country\": \"Italy\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/8543.png\"\n                },\n                {\n                    \"id\": \"784763\",\n                    \"name\": \"Llapi\",\n                    \"country\": \"Kosovo\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/784763.png\"\n                },\n                {\n                    \"id\": \"9977\",\n                    \"name\": \"LASK\",\n                    \"country\": \"Austria\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/9977.png\"\n                },\n                {\n                    \"id\": \"8152\",\n                    \"name\": \"St. Pauli\",\n                    \"country\": \"Germany\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/8152.png\"\n                },\n                {\n                    \"id\": \"175654\",\n                    \"name\": \"Bala Town\",\n                    \"country\": \"Wales\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/175654.png\"\n                },\n                {\n                    \"id\": \"9799\",\n                    \"name\": \"Port Vale\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/9799.png\"\n                },\n                {\n                    \"id\": \"580434\",\n                    \"name\": \"Raynes Park Vale\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/580434.png\"\n                },\n                {\n                    \"id\": \"674339\",\n                    \"name\": \"Shaw Lane AFC\",\n                    \"country\": \"England\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/674339.png\"\n                },\n                {\n                    \"id\": \"6637\",\n                    \"name\": \"LA Galaxy\",\n                    \"country\": \"USA\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/6637.png\"\n                },\n                {\n                    \"id\": \"163541\",\n                    \"name\": \"La Fiorita Montegiardino\",\n                    \"country\": \"San Marino\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/team/163541.png\"\n                }\n            ]\n        },\n        \"leagues\": {\n            \"total_records\": 1,\n            \"data\": [\n                {\n                    \"id\": \"87\",\n                    \"name\": \"LaLiga\",\n                    \"country\": \"Spain\",\n                    \"logo\": \"https://enetpulse-images.s3.amazonaws.com/league/87.png\"\n                }\n            ]\n        }\n        }\n    }",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

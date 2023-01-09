@@ -1,0 +1,1697 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Search Module Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="css/theme-default.print.css" media="print">
+    <script src="js/theme-default-2.0.2.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+    var baseUrl = "https://dev.search.api.by433.com/";
+    </script>
+    <script src="js/tryitout-2.0.2.js"></script>
+    
+</head>
+
+<body data-languages="[&#34;bash&#34;,&#34;javascript&#34;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+    
+    
+        <div class="lang-selector">
+            
+                <a href="#" data-language-name="bash">bash</a>
+            
+                <a href="#" data-language-name="javascript">javascript</a>
+            
+        </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+    
+        <ul class="toc-footer" id="toc-footer">
+            
+                <li><a href="collection.json">View Postman collection</a></li>
+            
+                <li><a href="http://github.com/knuckleswtf/scribe-js">Documentation powered by Scribe ✍</a></li>
+            
+        </ul>
+    
+        <ul class="toc-footer" id="last-updated">
+            <li>Last updated: December 28, 2022</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+  <p>Base URL:</p>
+</blockquote>
+<pre><code class="yaml language-yaml">https://dev.search.api.by433.com
+</code></pre>
+
+        <h1 id="authenticatingrequests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        
+    <h1 id="Endpoints">Endpoints</h1>
+    <p>
+        
+    </p>
+
+    
+        
+<h2 id="Endpoints-GET-api-search-all">Search All</h2>
+
+<p>
+
+</p>
+
+<p>For searching all results.</p>
+
+<span id="example-requests-GET-api-search-all">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request GET \
+    --get "https://dev.search.api.by433.com//api/search-allkeyword=animi&amp;limit=43698&amp;from=99065&amp;module=voluptate"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/search-all"
+);
+
+const params = {{
+    "keyword": "animi",
+    "limit": "43698",
+    "from": "99065",
+    "module": "voluptate",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-GET-api-search-all">
+
+
+<blockquote>Example response (200):</blockquote>
+
+
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+        "response": true,
+        "status_code": 200,
+        "message": "Listing search result",
+        "error_msgs": {},
+        "data": {
+            "users_data": {
+                "total_records": 32,
+                "users": [
+                    {
+                        "id": "622a851594d3e275ee03c425",
+                        "first_name": "Aadasdsa",
+                        "last_name": "Kodu",
+                        "gender": null,
+                        "username": "adkfddsamf",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "621772b72bb577af948b318d",
+                        "first_name": "Ali",
+                        "last_name": "Ahmed",
+                        "gender": 1,
+                        "username": "ali666",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "621e0eabcd8840dd1240d813",
+                        "first_name": "Ali",
+                        "last_name": "Mehdidio",
+                        "gender": null,
+                        "username": "maddy",
+                        "profile_picture": "media/profile_picture/1647952721820_9807130.jpeg",
+                        "friendship_status": 2,
+                        "request_id": "623990a46755e7312460c58b"
+                    },
+                    {
+                        "id": "621e315b4daa12e712d20f4a",
+                        "first_name": "Asad",
+                        "last_name": "Zaidi",
+                        "gender": null,
+                        "username": "mongouserasad",
+                        "profile_picture": "media/profile_picture/1647436922189_3770546.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6231b90bb0c822ea690d2509",
+                        "first_name": "Asad",
+                        "last_name": "Raza Zaidi",
+                        "gender": null,
+                        "username": "fbasad",
+                        "profile_picture": "media/profile_picture/1647939699462_9030222.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6229f775462699a4b9727c4d",
+                        "first_name": "Baran",
+                        "last_name": "Erdogan",
+                        "gender": null,
+                        "username": "baranerdogan97",
+                        "profile_picture": null,
+                        "friendship_status": 1,
+                        "request_id": "623842fa36c38068fe3f1e97"
+                    },
+                    {
+                        "id": "621e245119ff6f3d35c32d50",
+                        "first_name": "Christiano",
+                        "last_name": "Ronaldo",
+                        "gender": 1,
+                        "username": "alikaranimessi",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6235877ee5cc85e4da63ff5e",
+                        "first_name": "David",
+                        "last_name": "Dwinger",
+                        "gender": 1,
+                        "username": "dwinger74",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "62207797465d76faae4e2af8",
+                        "first_name": "Fami",
+                        "last_name": "Jogo",
+                        "gender": 2,
+                        "username": "famisultana",
+                        "profile_picture": "media/profile_picture/1646988817841_6305744.jpeg",
+                        "friendship_status": 1,
+                        "request_id": "623a422031d7d4b1420b4716"
+                    },
+                    {
+                        "id": "62207559465d76faae4e2ae6",
+                        "first_name": "Fatima",
+                        "last_name": "Sultana",
+                        "gender": null,
+                        "username": "fami_facebook",
+                        "profile_picture": "media/profile_picture/1646308567851_2928944.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    }
+                ]
+            },
+            "articles_data": {
+                "total_records": 0,
+                "articles": []
+            },
+            "medias_data": {
+            "total_records": 1,
+            "medias":
+                [
+                    {
+                        "id": "629ef7c441ba7c4d704efe4b",
+                        "cover_image": "media/photos/330445b7-6624-4a18-a97e-4d0a18b4ccff.jpeg",
+                        "media_url": "media/audio/6fd6bcdd-689b-4239-b1dd-d8efced7b433.mp3",
+                        "media_type": "Listen",
+                        "description": "We spoke with six different people who worked with Erik ten Hag, from the day he put his pants on backwards at his first coaching job at Go Ahead Eagles, to the way he dealt with a tough personal situation at FC Utrecht, and the night he destroyed Real Madrid at the Santiago Bernabeu stadium with Ajax. This is the calculated rise of Erik ten Hag.",
+                        "created_at": "2022-06-07T07:15:30.679Z",
+                        "category": {
+                            "id": "620f699bd2c5aa80fec4b31b",
+                            "name": "Podcasts",
+                            "slug": "podcasts"
+                        },
+                        "parent": {
+                            "id": "620f693c7b8e2cf0c58246e7"
+                            "name": "Listen",
+                            "slug": "listen"
+                        }
+                    }
+                ]
+            },
+            "games_data": {
+                "total_records": 0,
+                "games": []
+            },
+            "filtered_data": {
+                "total_records": 0,
+                "records": []
+            },
+            "players_data": {
+            "total_records": 5,
+            "players": [
+                {
+                    "id": "26166",
+                    "name": "Karim Benzema",
+                    "position": "forward",
+                    "player_club_name": "Real Madrid"
+                },
+                {
+                    "id": "873573",
+                    "name": "Sam Beukema",
+                    "position": "defender",
+                    "player_club_name": "AZ Alkmaar"
+                },
+                {
+                    "id": "680028",
+                    "name": "Jan Bekkema",
+                    "position": "keeper",
+                    "player_club_name": "SC Heerenveen"
+                },
+                {
+                    "id": "319822",
+                    "name": "Yassine Benzia",
+                    "position": "forward"
+                },
+                {
+                    "id": "433489",
+                    "name": "Markas Beneta",
+                    "position": "midfielder",
+                    "player_club_name": "Suduva"
+                }
+            ]
+        },
+         "teams_data": {
+            "total_records": 12,
+            "teams": [
+                {
+                    "id": "10031",
+                    "name": "Laci",
+                    "country": "Albania",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/10031.png"
+                },
+                {
+                    "id": "6606",
+                    "name": "Real Salt Lake",
+                    "country": "USA",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/6606.png"
+                },
+                {
+                    "id": "8543",
+                    "name": "Lazio",
+                    "country": "Italy",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/8543.png"
+                },
+                {
+                    "id": "784763",
+                    "name": "Llapi",
+                    "country": "Kosovo",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/784763.png"
+                },
+                {
+                    "id": "9977",
+                    "name": "LASK",
+                    "country": "Austria",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/9977.png"
+                },
+                {
+                    "id": "8152",
+                    "name": "St. Pauli",
+                    "country": "Germany",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/8152.png"
+                },
+                {
+                    "id": "175654",
+                    "name": "Bala Town",
+                    "country": "Wales",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/175654.png"
+                },
+                {
+                    "id": "9799",
+                    "name": "Port Vale",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/9799.png"
+                },
+                {
+                    "id": "580434",
+                    "name": "Raynes Park Vale",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/580434.png"
+                },
+                {
+                    "id": "674339",
+                    "name": "Shaw Lane AFC",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/674339.png"
+                },
+                {
+                    "id": "6637",
+                    "name": "LA Galaxy",
+                    "country": "USA",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/6637.png"
+                },
+                {
+                    "id": "163541",
+                    "name": "La Fiorita Montegiardino",
+                    "country": "San Marino",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/163541.png"
+                }
+            ]
+        },
+        "leagues_data": {
+            "total_records": 1,
+            "leagues": [
+                {
+                    "id": "87",
+                    "name": "LaLiga",
+                    "country": "Spain",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/league/87.png"
+                }
+            ]
+        }
+        }
+    }</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-GET-api-search-all" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-api-search-all"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-api-search-all"></code></pre>
+</span>
+<span id="execution-error-GET-api-search-all" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-api-search-all"></code></pre>
+</span>
+
+<form id="form-GET-api-search-all"
+      data-method="GET"
+      data-path="/api/search-all"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GET-api-search-all', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-GET-api-search-all"
+            onclick="tryItOut('GET-api-search-all');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-GET-api-search-all"
+            onclick="cancelTryOut('GET-api-search-all');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-GET-api-search-all" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-green">GET</small>
+
+
+    <b><code>/api/search-all</code></b>
+</p>
+
+
+
+
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+
+
+<p>
+<b><code>keyword</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="keyword"
+               data-endpoint="GET-api-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+
+</p>
+
+
+<p>
+<b><code>limit</code></b>&nbsp;&nbsp;<small>integer</small>
+
+
+
+
+    
+        <input type="number"
+               name="limit"
+               data-endpoint="GET-api-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+
+</p>
+
+
+<p>
+<b><code>from</code></b>&nbsp;&nbsp;<small>integer</small>
+
+
+
+
+    
+        <input type="number"
+               name="from"
+               data-endpoint="GET-api-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+<p>(minimum 0)</p>
+</p>
+
+
+<p>
+<b><code>module</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="module"
+               data-endpoint="GET-api-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+<p>(users || articles || medias || players || teams || leagues || all)</p>
+</p>
+
+
+
+</form>
+
+
+
+    
+        
+<h2 id="Endpoints-POST-api-add-user-visited-content-logs">Add User Visited Content Logs</h2>
+
+<p>
+
+</p>
+
+<p>For user visited content logs creation</p>
+
+<span id="example-requests-POST-api-add-user-visited-content-logs">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request POST \
+    "https://dev.search.api.by433.com//api/add-user-visited-content-logs"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data '{
+    "type": "article.",
+    "contentId": "6238369affca207dcd033724"
+}'
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/add-user-visited-content-logs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+const body = {
+    "type": "article.",
+    "contentId": "6238369affca207dcd033724"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body),
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-POST-api-add-user-visited-content-logs">
+
+
+<blockquote>Example response (200):</blockquote>
+
+
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+        "response": true,
+        "status_code": 200,
+        "message": "Logs added successfully!",
+        "error_msgs": {},
+        "data": {
+            "addedLog": {
+                "_id": "62f3d080cb24c827aaf90f6d",
+                "contentId": "6238369affca207dcd033724",
+                "userId": "62b4114ce20391694ee7892e",
+                "type": "article",
+                "createdAt": "2022-08-10T15:36:33.019Z",
+                "updatedAt": "2022-08-10T15:36:33.019Z",
+            }
+        }
+    }</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-POST-api-add-user-visited-content-logs" hidden>
+    <blockquote>Received response<span id="execution-response-status-POST-api-add-user-visited-content-logs"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POST-api-add-user-visited-content-logs"></code></pre>
+</span>
+<span id="execution-error-POST-api-add-user-visited-content-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POST-api-add-user-visited-content-logs"></code></pre>
+</span>
+
+<form id="form-POST-api-add-user-visited-content-logs"
+      data-method="POST"
+      data-path="/api/add-user-visited-content-logs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POST-api-add-user-visited-content-logs', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-POST-api-add-user-visited-content-logs"
+            onclick="tryItOut('POST-api-add-user-visited-content-logs');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-POST-api-add-user-visited-content-logs"
+            onclick="cancelTryOut('POST-api-add-user-visited-content-logs');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-POST-api-add-user-visited-content-logs" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-black">POST</small>
+
+
+    <b><code>/api/add-user-visited-content-logs</code></b>
+</p>
+
+
+
+
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+
+    
+    
+            <p>
+                <b><code>type</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="type"
+               data-endpoint="POST-api-add-user-visited-content-logs"
+               data-component="body" required hidden>
+    
+
+<br>
+
+            </p>
+        
+
+    
+    
+            <p>
+                <b><code>contentId</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="contentId"
+               data-endpoint="POST-api-add-user-visited-content-logs"
+               data-component="body" required hidden>
+    
+
+<br>
+
+            </p>
+        
+
+
+</form>
+
+
+
+    
+        
+<h2 id="Endpoints-GET-api-get-user-visited-content-logs">Get User Visited Content Logs</h2>
+
+<p>
+
+</p>
+
+<p>For get user visited content logs</p>
+
+<span id="example-requests-GET-api-get-user-visited-content-logs">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request GET \
+    --get "https://dev.search.api.by433.com//api/get-user-visited-content-logs"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/get-user-visited-content-logs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-GET-api-get-user-visited-content-logs">
+
+
+<blockquote>Example response (200):</blockquote>
+
+
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+    "response": true,
+    "status_code": 200,
+    "message": "Logs get successfully!",
+    "error_msgs": {},
+    "data": {
+        "contents": [
+            {
+                "id": "623c645776bc48bd0c3e67dc",
+                "title": "123456789 hello hey bye",
+                "cover_image": {
+                    "portrait": {
+                        "image_url": "media/photos/8c503f7b-89d3-4aff-a38b-050f60c118da.jpeg",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "landscape": {
+                        "image_url": "media/photos/8c503f7b-89d3-4aff-a38b-050f60c118da.jpeg",
+                        "width": 0,
+                        "height": 0
+                    }
+                },
+                "media_url": "media/vids/1648124937266_1080p.mp4",
+                "media_type": "Watch",
+                "userVisitedContentLogId": "62f538729977d05262bd2415",
+                "description": "123",
+                "created_at": "2022-03-24T12:30:15.285Z",
+                "category": {
+                    "id": "6225cb30dfda7d7d64704850",
+                    "name": "Promises",
+                    "slug": "promises"
+                },
+                "parent": {
+                    "id": "620f692c5914ffddae36368b",
+                    "name": "Watch",
+                    "slug": "watch"
+                },
+                "type": "media"
+            },
+            {
+                "id": "6238369affca207dcd033724",
+                "title": "hey ham burger",
+                "image": "media/photos/185965d1-6aa3-4128-82d7-86f15bb622e8.png",
+                "userVisitedContentLogId": "62f3d080cb24c827aaf90f6d",
+                "created_at": "2022-03-21T08:26:02.463Z",
+                "type": "article"
+            },
+            {
+                "id": "6225c48108451f58730b099c",
+                "title": "videotwo",
+                "cover_image": {
+                    "portrait": {
+                        "image_url": "media/photos/4de330d5-7e1e-4533-a720-265166267e68.png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "landscape": {
+                        "image_url": "media/photos/4de330d5-7e1e-4533-a720-265166267e68.png",
+                        "width": 0,
+                        "height": 0
+                    }
+                },
+                "media_url": "media/vids/1646642292725_1080p.mp4",
+                "media_type": "Watch",
+                "userVisitedContentLogId": "62eba897c0211741cf2ed0d3",
+                "description": "h",
+                "created_at": "2022-03-07T08:38:25.285Z",
+                "category": {
+                    "id": "620f696edff44b4db86892a3",
+                    "name": "Homegrown",
+                    "slug": "homegrown"
+                },
+                "parent": {
+                    "id": "620f692c5914ffddae36368b",
+                    "name": "Watch",
+                    "slug": "watch"
+                },
+                "type": "media"
+            },
+            {
+                "id": "6225c3fc08451f58730b0985",
+                "title": "videotwo",
+                "cover_image": {
+                    "portrait": {
+                        "image_url": "media/photos/ebd1dbdd-ad93-47bf-9c4f-04c7c537e210.png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "landscape": {
+                        "image_url": "media/photos/ebd1dbdd-ad93-47bf-9c4f-04c7c537e210.png",
+                        "width": 0,
+                        "height": 0
+                    }
+                },
+                "media_url": "media/vids/1646642158237_1080p.mp4",
+                "media_type": "Watch",
+                "userVisitedContentLogId": "62eba5fcc0211741cf2ed0c3",
+                "description": "testing",
+                "created_at": "2022-03-07T08:36:12.120Z",
+                "category": {
+                    "id": "620f696edff44b4db86892a3",
+                    "name": "Homegrown",
+                    "slug": "homegrown"
+                },
+                "parent": {
+                    "id": "620f692c5914ffddae36368b",
+                    "name": "Watch",
+                    "slug": "watch"
+                },
+                "type": "media"
+            },
+            {
+                "id": "622f50d13488b3fc367bd056",
+                "title": "Abc hello",
+                "image": "media/photos/cc6240c1-7558-452e-bb21-a3f04f302098.jpeg",
+                "userVisitedContentLogId": "62eba58cc0211741cf2ed0bd",
+                "created_at": "2022-03-14T14:27:29.827Z",
+                "type": "article"
+            }
+        ]
+    }
+}</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-GET-api-get-user-visited-content-logs" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-api-get-user-visited-content-logs"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-api-get-user-visited-content-logs"></code></pre>
+</span>
+<span id="execution-error-GET-api-get-user-visited-content-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-api-get-user-visited-content-logs"></code></pre>
+</span>
+
+<form id="form-GET-api-get-user-visited-content-logs"
+      data-method="GET"
+      data-path="/api/get-user-visited-content-logs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GET-api-get-user-visited-content-logs', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-GET-api-get-user-visited-content-logs"
+            onclick="tryItOut('GET-api-get-user-visited-content-logs');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-GET-api-get-user-visited-content-logs"
+            onclick="cancelTryOut('GET-api-get-user-visited-content-logs');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-GET-api-get-user-visited-content-logs" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-green">GET</small>
+
+
+    <b><code>/api/get-user-visited-content-logs</code></b>
+</p>
+
+
+
+
+
+</form>
+
+
+
+    
+        
+<h2 id="Endpoints-GET-api-get-user-search-logs">Get User Search Logs</h2>
+
+<p>
+
+</p>
+
+<p>For get user search logs</p>
+
+<span id="example-requests-GET-api-get-user-search-logs">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request GET \
+    --get "https://dev.search.api.by433.com//api/get-user-search-logs"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/get-user-search-logs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-GET-api-get-user-search-logs">
+
+
+<blockquote>Example response (200):</blockquote>
+
+
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+        "response": true,
+        "status_code": 200,
+        "message": "Logs get successfully!",
+        "error_msgs": {},
+        "data": {
+            "searchLogs": [
+            {
+                "searchText": "Benzema",
+                "type": "all",
+                "userSearchLogId": "62e79901c512492cd122fa66",
+                "createdAt": "2022-08-01T09:12:33.915Z",
+                "updatedAt": "2022-08-01T09:52:08.321Z"
+            },
+            {
+                "searchText": "Kaka",
+                "type": "all",
+                "userSearchLogId": "62e7997ec512492cd122fa99",
+                "createdAt": "2022-08-01T09:14:38.737Z",
+                "updatedAt": "2022-08-01T09:14:38.737Z"
+            },
+        ]
+        }
+    }</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-GET-api-get-user-search-logs" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-api-get-user-search-logs"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-api-get-user-search-logs"></code></pre>
+</span>
+<span id="execution-error-GET-api-get-user-search-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-api-get-user-search-logs"></code></pre>
+</span>
+
+<form id="form-GET-api-get-user-search-logs"
+      data-method="GET"
+      data-path="/api/get-user-search-logs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GET-api-get-user-search-logs', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-GET-api-get-user-search-logs"
+            onclick="tryItOut('GET-api-get-user-search-logs');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-GET-api-get-user-search-logs"
+            onclick="cancelTryOut('GET-api-get-user-search-logs');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-GET-api-get-user-search-logs" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-green">GET</small>
+
+
+    <b><code>/api/get-user-search-logs</code></b>
+</p>
+
+
+
+
+
+</form>
+
+
+
+    
+        
+<h2 id="Endpoints-DELETE-api-clear-user-search-logs">DELETE /api/clear-user-search-logs</h2>
+
+<p>
+
+</p>
+
+
+
+<span id="example-requests-DELETE-api-clear-user-search-logs">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request DELETE \
+    "https://dev.search.api.by433.com//api/clear-user-search-logs"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/clear-user-search-logs"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-DELETE-api-clear-user-search-logs">
+
+</span>
+<span id="execution-results-DELETE-api-clear-user-search-logs" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETE-api-clear-user-search-logs"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETE-api-clear-user-search-logs"></code></pre>
+</span>
+<span id="execution-error-DELETE-api-clear-user-search-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETE-api-clear-user-search-logs"></code></pre>
+</span>
+
+<form id="form-DELETE-api-clear-user-search-logs"
+      data-method="DELETE"
+      data-path="/api/clear-user-search-logs"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETE-api-clear-user-search-logs', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-DELETE-api-clear-user-search-logs"
+            onclick="tryItOut('DELETE-api-clear-user-search-logs');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-DELETE-api-clear-user-search-logs"
+            onclick="cancelTryOut('DELETE-api-clear-user-search-logs');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-DELETE-api-clear-user-search-logs" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-red">DELETE</small>
+
+
+    <b><code>/api/clear-user-search-logs</code></b>
+</p>
+
+
+
+
+
+</form>
+
+
+
+    
+
+    <h1 id="Search-All-V2">Search All V2</h1>
+    <p>
+        
+    </p>
+
+    
+        
+<h2 id="Search-All-V2-GET-api-v2-search-all">Search All</h2>
+
+<p>
+
+</p>
+
+<p>For searching all results.</p>
+
+<span id="example-requests-GET-api-v2-search-all">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request GET \
+    --get "https://dev.search.api.by433.com//api/v2/search-allkeyword=exercitationem&amp;limit=55468&amp;from=45507&amp;module=corrupti"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "https://dev.search.api.by433.com//api/v2/search-all"
+);
+
+const params = {{
+    "keyword": "exercitationem",
+    "limit": "55468",
+    "from": "45507",
+    "module": "corrupti",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-GET-api-v2-search-all">
+
+
+<blockquote>Example response (200):</blockquote>
+
+
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+        "response": true,
+        "status_code": 200,
+        "message": "Listing search result",
+        "error_msgs": {},
+        "data": {
+            "all_records_count": 146,
+            "users": {
+                "total_records": 32,
+                "data": [
+                    {
+                        "id": "622a851594d3e275ee03c425",
+                        "first_name": "Aadasdsa",
+                        "last_name": "Kodu",
+                        "gender": null,
+                        "username": "adkfddsamf",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "621772b72bb577af948b318d",
+                        "first_name": "Ali",
+                        "last_name": "Ahmed",
+                        "gender": 1,
+                        "username": "ali666",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "621e0eabcd8840dd1240d813",
+                        "first_name": "Ali",
+                        "last_name": "Mehdidio",
+                        "gender": null,
+                        "username": "maddy",
+                        "profile_picture": "media/profile_picture/1647952721820_9807130.jpeg",
+                        "friendship_status": 2,
+                        "request_id": "623990a46755e7312460c58b"
+                    },
+                    {
+                        "id": "621e315b4daa12e712d20f4a",
+                        "first_name": "Asad",
+                        "last_name": "Zaidi",
+                        "gender": null,
+                        "username": "mongouserasad",
+                        "profile_picture": "media/profile_picture/1647436922189_3770546.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6231b90bb0c822ea690d2509",
+                        "first_name": "Asad",
+                        "last_name": "Raza Zaidi",
+                        "gender": null,
+                        "username": "fbasad",
+                        "profile_picture": "media/profile_picture/1647939699462_9030222.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6229f775462699a4b9727c4d",
+                        "first_name": "Baran",
+                        "last_name": "Erdogan",
+                        "gender": null,
+                        "username": "baranerdogan97",
+                        "profile_picture": null,
+                        "friendship_status": 1,
+                        "request_id": "623842fa36c38068fe3f1e97"
+                    },
+                    {
+                        "id": "621e245119ff6f3d35c32d50",
+                        "first_name": "Christiano",
+                        "last_name": "Ronaldo",
+                        "gender": 1,
+                        "username": "alikaranimessi",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "6235877ee5cc85e4da63ff5e",
+                        "first_name": "David",
+                        "last_name": "Dwinger",
+                        "gender": 1,
+                        "username": "dwinger74",
+                        "profile_picture": null,
+                        "friendship_status": 0,
+                        "request_id": ""
+                    },
+                    {
+                        "id": "62207797465d76faae4e2af8",
+                        "first_name": "Fami",
+                        "last_name": "Jogo",
+                        "gender": 2,
+                        "username": "famisultana",
+                        "profile_picture": "media/profile_picture/1646988817841_6305744.jpeg",
+                        "friendship_status": 1,
+                        "request_id": "623a422031d7d4b1420b4716"
+                    },
+                    {
+                        "id": "62207559465d76faae4e2ae6",
+                        "first_name": "Fatima",
+                        "last_name": "Sultana",
+                        "gender": null,
+                        "username": "fami_facebook",
+                        "profile_picture": "media/profile_picture/1646308567851_2928944.jpeg",
+                        "friendship_status": 0,
+                        "request_id": ""
+                    }
+                ]
+            },
+            "articles": {
+                "total_records": 0,
+                "data": []
+            },
+            "medias": {
+            "total_records": 1,
+            "data":
+                [
+                    {
+                        "id": "629ef7c441ba7c4d704efe4b",
+                        "cover_image": "media/photos/330445b7-6624-4a18-a97e-4d0a18b4ccff.jpeg",
+                        "media_url": "media/audio/6fd6bcdd-689b-4239-b1dd-d8efced7b433.mp3",
+                        "media_type": "Listen",
+                        "description": "We spoke with six different people who worked with Erik ten Hag, from the day he put his pants on backwards at his first coaching job at Go Ahead Eagles, to the way he dealt with a tough personal situation at FC Utrecht, and the night he destroyed Real Madrid at the Santiago Bernabeu stadium with Ajax. This is the calculated rise of Erik ten Hag.",
+                        "created_at": "2022-06-07T07:15:30.679Z",
+                        "category": {
+                            "id": "620f699bd2c5aa80fec4b31b",
+                            "name": "Podcasts",
+                            "slug": "podcasts"
+                        },
+                        "parent": {
+                            "id": "620f693c7b8e2cf0c58246e7"
+                            "name": "Listen",
+                            "slug": "listen"
+                        }
+                    }
+                ]
+            },
+            "players": {
+            "total_records": 5,
+            "data": [
+                {
+                    "id": "26166",
+                    "name": "Karim Benzema",
+                    "position": "forward",
+                    "player_club_name": "Real Madrid"
+                },
+                {
+                    "id": "873573",
+                    "name": "Sam Beukema",
+                    "position": "defender",
+                    "player_club_name": "AZ Alkmaar"
+                },
+                {
+                    "id": "680028",
+                    "name": "Jan Bekkema",
+                    "position": "keeper",
+                    "player_club_name": "SC Heerenveen"
+                },
+                {
+                    "id": "319822",
+                    "name": "Yassine Benzia",
+                    "position": "forward"
+                },
+                {
+                    "id": "433489",
+                    "name": "Markas Beneta",
+                    "position": "midfielder",
+                    "player_club_name": "Suduva"
+                }
+            ]
+        },
+         "teams": {
+            "total_records": 12,
+            "data": [
+                {
+                    "id": "10031",
+                    "name": "Laci",
+                    "country": "Albania",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/10031.png"
+                },
+                {
+                    "id": "6606",
+                    "name": "Real Salt Lake",
+                    "country": "USA",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/6606.png"
+                },
+                {
+                    "id": "8543",
+                    "name": "Lazio",
+                    "country": "Italy",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/8543.png"
+                },
+                {
+                    "id": "784763",
+                    "name": "Llapi",
+                    "country": "Kosovo",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/784763.png"
+                },
+                {
+                    "id": "9977",
+                    "name": "LASK",
+                    "country": "Austria",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/9977.png"
+                },
+                {
+                    "id": "8152",
+                    "name": "St. Pauli",
+                    "country": "Germany",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/8152.png"
+                },
+                {
+                    "id": "175654",
+                    "name": "Bala Town",
+                    "country": "Wales",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/175654.png"
+                },
+                {
+                    "id": "9799",
+                    "name": "Port Vale",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/9799.png"
+                },
+                {
+                    "id": "580434",
+                    "name": "Raynes Park Vale",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/580434.png"
+                },
+                {
+                    "id": "674339",
+                    "name": "Shaw Lane AFC",
+                    "country": "England",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/674339.png"
+                },
+                {
+                    "id": "6637",
+                    "name": "LA Galaxy",
+                    "country": "USA",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/6637.png"
+                },
+                {
+                    "id": "163541",
+                    "name": "La Fiorita Montegiardino",
+                    "country": "San Marino",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/team/163541.png"
+                }
+            ]
+        },
+        "leagues": {
+            "total_records": 1,
+            "data": [
+                {
+                    "id": "87",
+                    "name": "LaLiga",
+                    "country": "Spain",
+                    "logo": "https://enetpulse-images.s3.amazonaws.com/league/87.png"
+                }
+            ]
+        }
+        }
+    }</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-GET-api-v2-search-all" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-api-v2-search-all"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-api-v2-search-all"></code></pre>
+</span>
+<span id="execution-error-GET-api-v2-search-all" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-api-v2-search-all"></code></pre>
+</span>
+
+<form id="form-GET-api-v2-search-all"
+      data-method="GET"
+      data-path="/api/v2/search-all"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GET-api-v2-search-all', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-GET-api-v2-search-all"
+            onclick="tryItOut('GET-api-v2-search-all');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-GET-api-v2-search-all"
+            onclick="cancelTryOut('GET-api-v2-search-all');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-GET-api-v2-search-all" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-green">GET</small>
+
+
+    <b><code>/api/v2/search-all</code></b>
+</p>
+
+
+
+
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+
+
+<p>
+<b><code>keyword</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="keyword"
+               data-endpoint="GET-api-v2-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+
+</p>
+
+
+<p>
+<b><code>limit</code></b>&nbsp;&nbsp;<small>integer</small>
+
+
+
+
+    
+        <input type="number"
+               name="limit"
+               data-endpoint="GET-api-v2-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+
+</p>
+
+
+<p>
+<b><code>from</code></b>&nbsp;&nbsp;<small>integer</small>
+
+
+
+
+    
+        <input type="number"
+               name="from"
+               data-endpoint="GET-api-v2-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+<p>(minimum 0)</p>
+</p>
+
+
+<p>
+<b><code>module</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="module"
+               data-endpoint="GET-api-v2-search-all"
+               data-component="query" required hidden>
+    
+
+<br>
+<p>(users || articles || medias || players || teams || leagues || contentCreators || all)</p>
+</p>
+
+
+
+</form>
+
+
+
+    
+
+
+        
+    </div>
+    <div class="dark-box">
+        
+            <div class="lang-selector">
+                
+                    <a href="#" data-language-name="bash">bash</a>
+                
+                    <a href="#" data-language-name="javascript">javascript</a>
+                
+            </div>
+        
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+
+</body>
+</html>
