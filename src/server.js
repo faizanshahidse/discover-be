@@ -5,6 +5,13 @@ const serverlesshttp = require('serverless-http');
 
 
 
+/** Initializing Organization packages */
+const HomeMedia = require('feed_media_433');
+
+// Initializing models via HomeMedia
+require('feed_media_433/models');
+
+
 
 /** Local statics. environment and configuration */
 

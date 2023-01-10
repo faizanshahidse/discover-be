@@ -7,13 +7,11 @@ const {
 
 /**
  * Service to compile a listing for discover social media feed
- * @param {Object} request
- * @param {Object} response
- * @param {Object} next
- * @returns {Array<*>}
+ * @param {Object} query
+ * @returns {Promise<Array<*>>}
  */
-const discoverListing = async (request, response, next) => {
-    const newsListingData = await newsListing(request, response, next);
+const discoverListing = async (query) => {
+    const newsListingData = await newsListing(query);
 
     return newsListingData;
 }

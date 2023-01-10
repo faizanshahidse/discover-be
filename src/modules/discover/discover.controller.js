@@ -11,7 +11,11 @@ const {
 
 const discoverListingController = async (req, res, next) => {
     try {
-        const loadedListing = await discoverListing(req, res, next);
+        const {
+            query
+        } = req;
+
+        const loadedListing = await discoverListing(query);
 
         const responseToSend = apiSuccessResponse(loadedListing);
 

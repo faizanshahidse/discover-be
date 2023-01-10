@@ -12,10 +12,6 @@ const instantiate = async (...args) => {
     dotenv.config();
 
 
-    /** Initializing Organization packages */
-    const FeedAndMedia = require('feed_media_433');
-
-
 
     /** Local dependencies and libnraries */
     const serverIntializer = require('./src/server');

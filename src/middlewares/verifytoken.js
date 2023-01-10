@@ -47,7 +47,8 @@ const verifyToken = async (req, res, next) => {
             } = userData;
 
             const user_data = await User.findOne({
-                id
+                id,
+                deleted: false,
             });
 
             if (user_data == null) {
