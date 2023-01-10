@@ -23,13 +23,18 @@ const apiFailedResponse = (
 }
 
 
-const apiSuccessResponse = (message, data, error_messages = {}) => {
+const apiSuccessResponse = (data, options = {}) => {
+  const {
+    error_messages = {},
+    message = 'success',
+  } = options;
+
   return {
     response: true,
     status_code: 200,
-    message: message,
+    message,
     error_msgs: error_messages,
-    data: data,
+    data,
   };
 }
 

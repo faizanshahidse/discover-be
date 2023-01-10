@@ -30,7 +30,7 @@ const connection = () => {
       });
 
       db.on("connected", () => {
-        console.log("Mongo connection is up.");
+        console.log("Mongo connection is up for Discover Module - main cluster.");
       });
 
       db.on("error", (err) => {

@@ -8,6 +8,8 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 const rootRouter = express.Router(); // eslint-disable-line new-cap
 
+const { router: DiscoverRouter } = require('../modules/discover/discover.routes');
+
 
 
 /**
@@ -38,6 +40,13 @@ router
         healthCheckHandler
     );
 
+
+/** Discover APIs router */
+router
+    .use(
+        '/',
+        DiscoverRouter,
+    );
 
 
 router

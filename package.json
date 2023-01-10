@@ -36,6 +36,7 @@
     "express-list-endpoints": "^6.0.0",
     "express-validator": "^6.13.0",
     "feed_media_433": "github:JOGO-FOOTBALL/HOMEMEDIA-Backend",
+    "matches_module_433": "github:JOGO-FOOTBALL/matches-module",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",

@@ -14,20 +14,22 @@ const {
 } = process.env;
 
 
-const User = require('../models/User')
+const User = require('feed_media_433/models/User');
 
-const authenticateJWT = async (req, res, next) => {
+
+const verifyToken = async (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
 
-        JWT.verify(token, secret, async (err, user) => {
+        JWT.verify(token, secret, async (err, userData) => {
             if (err) {
                 return res.status(200).send(apiFailedResponse('Forbidden', { err }, {}, 409));
             }
 
-            if (user.iss !== process.env.ISSUER)
+
+            if (userData.iss !== process.env.ISSUER) {
                 return res
                     .status(200)
                     .send(
@@ -38,13 +40,18 @@ const authenticateJWT = async (req, res, next) => {
                             401
                         )
                     );
+            }
+
+            const {
+                user: { id }
+            } = userData;
 
             const user_data = await User.findOne({
-                _id: user.user.id
+                id
             });
 
             if (user_data == null) {
-                return res.status(200).send(apiFailedResponse('Unauthorized', {}, {}, 401));
+                return res.status(200).send(apiFailedResponse('Unauthorized2', {}, {}, 401));
             }
 
             Object.assign(
@@ -54,16 +61,16 @@ const authenticateJWT = async (req, res, next) => {
                     token,
                 }
             )
-            
+
 
             next();
 
         });
     } else {
-        return res.status(200).send(apiFailedResponse('Unauthorized', {}, {}, 401));
+        return res.status(200).send(apiFailedResponse('Unauthorized3', {}, {}, 401));
     }
 };
 
 module.exports = {
-    authenticateJWT
+    verifyToken,
 };

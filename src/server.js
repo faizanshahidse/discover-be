@@ -12,6 +12,10 @@ const {
     AppConfig
 } = require('./config');
 
+const {
+    IS_SERVERLESS_ENABLED = false,
+} = process.env;
+
 
 
 module.exports = async () => {
@@ -20,7 +24,7 @@ module.exports = async () => {
     const { app } = require('./app');
 
 
-    if (process.env.NODE_ENV === AppConfig.environments.list.DEVLOCAL)
+    if (!JSON.parse(IS_SERVERLESS_ENABLED))
         return { app };
 
 
