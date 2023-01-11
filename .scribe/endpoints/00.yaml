@@ -1,0 +1,106 @@
+name: Endpoints
+endpoints:
+  - uri: /api-endpoints
+    httpMethods:
+      - GET
+    metadata:
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: '*'
+          surrogate-control: no-store
+          cache-control: 'no-store, no-cache, must-revalidate, proxy-revalidate'
+          pragma: no-cache
+          expires: '0'
+          content-type: application/json; charset=utf-8
+          vary: Accept-Encoding
+        content: |-
+          {
+              "version": "0.0.1",
+              "data": {
+                  "apiBase": "http://localhost:3000/",
+                  "appName": "discover",
+                  "endpoints": [
+                      {
+                          "uri": "/api-endpoints",
+                          "method": "GET"
+                      },
+                      {
+                          "uri": "/health-check",
+                          "method": "GET"
+                      },
+                      {
+                          "uri": "/stream",
+                          "method": "GET"
+                      },
+                      {
+                          "uri": "*"
+                      }
+                  ]
+              }
+          }
+    responseFields: {}
+  - uri: /health-check
+    httpMethods:
+      - GET
+    metadata:
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: '*'
+          surrogate-control: no-store
+          cache-control: 'no-store, no-cache, must-revalidate, proxy-revalidate'
+          pragma: no-cache
+          expires: '0'
+          content-type: text/plain; charset=utf-8
+          vary: Accept-Encoding
+        content: OK
+    responseFields: {}
+  - uri: /stream
+    httpMethods:
+      - GET
+    metadata:
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: '*'
+          surrogate-control: no-store
+          cache-control: 'no-store, no-cache, must-revalidate, proxy-revalidate'
+          pragma: no-cache
+          expires: '0'
+          content-type: application/json; charset=utf-8
+          vary: Accept-Encoding
+        content: |-
+          {
+              "response": false,
+              "status_code": 500,
+              "message": "error",
+              "data": {},
+              "status": "error",
+              "isOperational": true
+          }
+    responseFields: {}

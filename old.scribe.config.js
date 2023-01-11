@@ -10,12 +10,12 @@ module.exports = {
     /*
      * The base URL displayed in the docs.
      */
-    baseUrl: "https://dev.discover.api.by433.com",
+    baseUrl: "https://dev.discover.api.by433.com/",
 
     /*
      * The HTML <title> for the generated documentation, and the name of the generated Postman collection and OpenAPI spec.
      */
-    title: "Discover BE Documentation",
+    title: "Discover Module Documentation",
     description: '',
 
     /*
@@ -110,7 +110,7 @@ module.exports = {
                     /*
                      * The base URL Scribe will make requests to. This should be the URL (+ port) you run on localhost.
                      */
-                    baseUrl: "http://localhost:3000",
+                    baseUrl: "https://dev.discover.api.by433.com/",
                     /*
                      * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
                      * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.

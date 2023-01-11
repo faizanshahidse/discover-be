@@ -23,6 +23,9 @@ const {
   AppConfig,
 } = require('./config');
 
+const {
+  apiFailedResponse,
+} = require('./helper');
 
 
 /** Application configurations, environments and declarations */
@@ -36,7 +39,7 @@ const {
 
 
 const {
-  VERSION: version
+  version: VERSION,
 } = require('../package.json');
 
 
@@ -109,20 +112,23 @@ if (process.env.NODE_ENV == AppConfig.environments.list.DEVLOCAL)
 /** Local configuration exports & modules */
 const {
   router,
-  rootRouter,
+  // rootRouter,
 } = require('./routes');
 
 
 
 // mount all routes on /api path
 app.use(API_BASE, router);
-app.use('/', rootRouter);
+
+// app.use('/', rootRouter);
 
 
 //Serving app
 app.use(async function (err, req, res, next) {
   try {
-    if (err.message !== 'Validation errors' && process.env.NODE_ENV == 'development') {
+    console.log(err);
+    
+    if (err.message !== 'Validation errors' && process.env.NODE_ENV !== AppConfig.environments.list.DEVLOCAL) {
       Sentry.captureException(
         err,
         Sentry
@@ -133,21 +139,15 @@ app.use(async function (err, req, res, next) {
       await Sentry.flush();
     }
 
-    const statusCode = res.statusCode === 200 ? err.status_code || 500 : res.statusCode;
+    const statusCode = res.statusCode === 200
+      ? err.status_code || 500
+      : res.statusCode;
+
+    const responseToSend = apiFailedResponse(err);
 
     res
       .status(statusCode)
-      .json({
-        response: false,
-        name: err.name,
-        status_code: err.status_code || statusCode,
-        status: err.status || 'fail',
-        message: err.message,
-        error_msgs: err.data,
-        data: err.error_msgs,
-        isOperational: err.isOperational,
-        stack: process.env.NODE_ENV === 'development' ? null : err.stack,
-      });
+      .json(responseToSend);
 
     next();
   } catch (exc) {
@@ -156,6 +156,8 @@ app.use(async function (err, req, res, next) {
       .send('server-error');
 
     console.log(exc);
+
+    next();
   }
 });
 

@@ -1,21 +1,22 @@
+
+/** Third party dependencies */
+const dotenv = require('dotenv');
+
+
+
+/** Environment configuration */
+dotenv.config();
+
+
 /** Asynchronous Application flow */
 const instantiate = async (...args) => {
     /** Setting off Express Application Handling App */
-    
-    
-    /** Third party dependencies */
-    const dotenv = require('dotenv');
-    
-    
-    
-    /** Environment configuration */
-    dotenv.config();
-    
-    
-    
+
+
+
     /** Local dependencies and libnraries */
     const serverIntializer = require('./src/server');
-    
+
 
     /** Application configuration and declarations */
     const {
@@ -26,6 +27,7 @@ const instantiate = async (...args) => {
     /** Application declarations and configurations */
     const {
         APP_PORT,
+        PORT,
     } = process.env;
 
 
@@ -36,9 +38,11 @@ const instantiate = async (...args) => {
 
     await preReq(app, appConfig);
 
+
+
     if (!servelessInstance) {
-        app.listen(APP_PORT, () => {
-            console.log(`Express server running on port ${APP_PORT}`);
+        app.listen(PORT, () => {
+            console.log(`Express server running on port ${PORT}`);
         });
 
         return app;
@@ -47,5 +51,8 @@ const instantiate = async (...args) => {
     return servelessInstance(...args);
 };
 
-// module.exports.handler = instantiate;
-instantiate()
+
+if (JSON.parse(process.env.IS_SERVERLESS_ENABLED))
+    module.exports.handler = instantiate;
+else
+    instantiate();

@@ -6,7 +6,9 @@ const express = require('express');
 /** System Routers for different modules */
 const router = express.Router(); // eslint-disable-line new-cap
 
-const rootRouter = express.Router(); // eslint-disable-line new-cap
+// const rootRouter = express.Router(); // eslint-disable-line new-cap
+
+const { router: StreamRouter } = require('../modules/stream/stream.routes');
 
 
 
@@ -40,6 +42,16 @@ router
 
 
 
+/** Discover APIs router */
+// Stream router
+router
+    .use(
+        '/stream',
+        StreamRouter,
+    );
+
+
+
 router
     .all(
         '*',
@@ -48,27 +60,20 @@ router
     );
 
 
-/** Root router */
-rootRouter
-    .get(
-        '/',
-        healthCheckHandler,
-    );
+// rootRouter
+//     .get(
+//         '/health-check',
+//         healthCheckHandler,
+//     );
 
-rootRouter
-    .get(
-        '/health-check',
-        healthCheckHandler,
-    );
-
-rootRouter
-    .all(
-        '*',
-        routeNotFoundHandler
-            .bind(null, { parentRouter: 'root' })
-    );
+// rootRouter
+//     .all(
+//         '*',
+//         routeNotFoundHandler
+//             .bind(null, { parentRouter: 'root' })
+//     );
 
 module.exports = {
     router,
-    rootRouter,
+    // rootRouter,
 };

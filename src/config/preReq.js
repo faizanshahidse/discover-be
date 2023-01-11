@@ -3,6 +3,7 @@ const Bluebird = require('bluebird'); // eslint-disable-line no-global-assign
 
 
 
+/** Application configuration and declarations */
 // Initializing DB connection by importing the DB module, if not initialized
 require('./database');
 

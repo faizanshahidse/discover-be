@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon index.js",
-    "dev:debug": "nodemon --inspect=0.0.0.0:9229 index.js"
+    "dev:debug": "nodemon --inspect=0.0.0.0:9229 index.js",
+    "generate:docs": "scribe generate -a index.js"
   },
   "repository": {
     "type": "git",
@@ -35,14 +36,19 @@
     "express-async-handler": "^1.2.0",
     "express-list-endpoints": "^6.0.0",
     "express-validator": "^6.13.0",
-    "feed_media_433": "github:JOGO-FOOTBALL/HOMEMEDIA-Backend",
+    "feed_media_433": "github:JOGO-FOOTBALL/homeMEDIA-Backend",
+    "http-status": "^1.6.2",
+    "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "matches_module_433": "github:JOGO-FOOTBALL/matches-module",
     "moment": "^2.29.4",
     "mongoose": "^6.2.1",
     "morgan": "^1.10.0",
     "nocache": "^3.0.4",
     "nodemon": "^2.0.18",
+    "redis": "^4.5.1",
+    "redis-om": "^0.3.6",
     "serverless-http": "^2.7.0",
     "serverless-plugin-scripts": "^1.0.2",
     "serverless-prune-plugin": "^2.0.1"

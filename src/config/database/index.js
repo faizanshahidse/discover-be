@@ -3,10 +3,18 @@ const mongoose = require("mongoose");
 
 
 
+/** Organizational dependencies and packages */
+const dbConnection = require('feed_media_433/config/database');
+
+
 
 /** Application configuration and declarations */
-let db = null;
+let db = dbConnection || null;
 
+const {
+  MONGOOSE_DEBUG = 'false',
+  MONGO_DB_HOST,
+} = process.env;
 
 
 
@@ -18,7 +26,7 @@ const connection = () => {
     );
 
     if (db === null) {
-      db = mongoose.createConnection(process.env.MONGO_DB, {
+      db = mongoose.createConnection(MONGO_DB_HOST, {
         minPoolSize: 0,
         maxPoolSize: 1,
         keepAlive: true,
@@ -30,7 +38,7 @@ const connection = () => {
       });
 
       db.on("connected", () => {
-        console.log("Mongo connection is up.");
+        console.log("Mongo connection is up for Discover Module - main cluster.");
       });
 
       db.on("error", (err) => {
