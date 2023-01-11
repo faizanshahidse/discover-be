@@ -1,15 +1,16 @@
+
+/** Third party dependencies */
+const dotenv = require('dotenv');
+
+
+
+/** Environment configuration */
+dotenv.config();
+
+
 /** Asynchronous Application flow */
 const instantiate = async (...args) => {
     /** Setting off Express Application Handling App */
-
-
-    /** Third party dependencies */
-    const dotenv = require('dotenv');
-
-
-
-    /** Environment configuration */
-    dotenv.config();
 
 
 
@@ -50,5 +51,8 @@ const instantiate = async (...args) => {
     return servelessInstance(...args);
 };
 
-// module.exports.handler = instantiate;
-instantiate()
+
+if (JSON.parse(process.env.IS_SERVERLESS_ENABLED))
+    module.exports.handler = instantiate;
+else
+    instantiate();

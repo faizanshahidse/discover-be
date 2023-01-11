@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon index.js",
-    "dev:debug": "nodemon --inspect=0.0.0.0:9229 index.js"
+    "dev:debug": "nodemon --inspect=0.0.0.0:9229 index.js",
+    "generate:docs": "scribe generate -a index.js"
   },
   "repository": {
     "type": "git",

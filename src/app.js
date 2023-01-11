@@ -39,7 +39,7 @@ const {
 
 
 const {
-  VERSION: version
+  version: VERSION,
 } = require('../package.json');
 
 
@@ -112,7 +112,7 @@ if (process.env.NODE_ENV == AppConfig.environments.list.DEVLOCAL)
 /** Local configuration exports & modules */
 const {
   router,
-  rootRouter,
+  // rootRouter,
 } = require('./routes');
 
 
@@ -120,7 +120,7 @@ const {
 // mount all routes on /api path
 app.use(API_BASE, router);
 
-app.use('/', rootRouter);
+// app.use('/', rootRouter);
 
 
 //Serving app

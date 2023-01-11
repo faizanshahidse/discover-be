@@ -1,0 +1,219 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "dev.discover.api.by433.com"
+        }
+    ],
+    "info": {
+        "name": "Discover BE Documentation",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "4be6a187-091a-406d-ac5c-1c7132258a5a"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "item": [
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api-endpoints",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/api-endpoints"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "surrogate-control",
+                                    "value": "no-store"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
+                                },
+                                {
+                                    "key": "pragma",
+                                    "value": "no-cache"
+                                },
+                                {
+                                    "key": "expires",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Accept-Encoding"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"version\": \"0.0.1\",\n    \"data\": {\n        \"apiBase\": \"http://localhost:3000/\",\n        \"appName\": \"discover\",\n        \"endpoints\": [\n            {\n                \"uri\": \"/api-endpoints\",\n                \"method\": \"GET\"\n            },\n            {\n                \"uri\": \"/health-check\",\n                \"method\": \"GET\"\n            },\n            {\n                \"uri\": \"/stream\",\n                \"method\": \"GET\"\n            },\n            {\n                \"uri\": \"*\"\n            }\n        ]\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "health-check",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/health-check"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "surrogate-control",
+                                    "value": "no-store"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
+                                },
+                                {
+                                    "key": "pragma",
+                                    "value": "no-cache"
+                                },
+                                {
+                                    "key": "expires",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "text/plain; charset=utf-8"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Accept-Encoding"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "OK",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "stream",
+                            "query": [],
+                            "raw": "https://{{baseUrl}}/stream"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "surrogate-control",
+                                    "value": "no-store"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
+                                },
+                                {
+                                    "key": "pragma",
+                                    "value": "no-cache"
+                                },
+                                {
+                                    "key": "expires",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Accept-Encoding"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"response\": false,\n    \"status_code\": 500,\n    \"message\": \"error\",\n    \"data\": {},\n    \"status\": \"error\",\n    \"isOperational\": true\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
