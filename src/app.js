@@ -128,7 +128,7 @@ app.use(async function (err, req, res, next) {
   try {
     console.log(err);
     
-    if (err.message !== 'Validation errors' && process.env.NODE_ENV == 'development') {
+    if (err.message !== 'Validation errors' && process.env.NODE_ENV !== AppConfig.environments.list.DEVLOCAL) {
       Sentry.captureException(
         err,
         Sentry
@@ -143,9 +143,7 @@ app.use(async function (err, req, res, next) {
       ? err.status_code || 500
       : res.statusCode;
 
-    const responseToSend = apiFailedResponse({
-      ...err
-    });
+    const responseToSend = apiFailedResponse(err);
 
     res
       .status(statusCode)

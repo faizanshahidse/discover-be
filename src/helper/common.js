@@ -3,22 +3,24 @@ const { validationResult } = require("express-validator");
 
 
 
-const apiFailedResponse = (
-  message,
-  data,
-  error_messages,
-  statusCode = 500,
-  stack
-) => {
+const apiFailedResponse = (errorObject) => {
+  const {
+    message = 'error',
+    data = {},
+    error_messages,
+    status_code = 500,
+    stack
+  } = errorObject;
+
   return {
     response: false,
-    status_code: statusCode,
-    message: message,
+    status_code: status_code,
+    message,
     error_msgs: error_messages,
-    data: data,
-    status: `${statusCode}`.startsWith("4") ? "fail" : "error",
+    data,
+    status: `${status_code}`.startsWith("4") ? "fail" : "error",
     isOperational: true,
-    stack: stack,
+    stack,
   };
 }
 

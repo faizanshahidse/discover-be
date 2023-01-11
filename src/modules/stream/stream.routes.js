@@ -4,8 +4,8 @@ const { Router } = require('express');
 
 /** Local dependencies and functions */
 const {
-    discoverListingController,
-} = require('./discover.controller');
+    streamListingController,
+} = require('./stream.controller');
 
 const {
     verifyToken,
@@ -20,7 +20,8 @@ router
     .get(
         '/',
         verifyToken,
-        discoverListingController,
+        schemaValidator('streamQuery'),
+        streamListingController,
     )
 
 

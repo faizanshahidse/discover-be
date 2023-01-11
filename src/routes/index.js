@@ -8,7 +8,7 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 const rootRouter = express.Router(); // eslint-disable-line new-cap
 
-const { router: DiscoverRouter } = require('../modules/discover/discover.routes');
+const { router: StreamRouter } = require('../modules/stream/stream.routes');
 
 
 
@@ -41,12 +41,15 @@ router
     );
 
 
+
 /** Discover APIs router */
+// Stream router
 router
     .use(
-        '/',
-        DiscoverRouter,
+        '/stream',
+        StreamRouter,
     );
+
 
 
 router

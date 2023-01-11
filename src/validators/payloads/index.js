@@ -1,6 +1,6 @@
-const discoverPayloads = require('./discover.payload');
+const streamPayloads = require('./stream.payload');
 
 
 module.exports = {
-    ...discoverPayloads,
+    ...streamPayloads,
 }

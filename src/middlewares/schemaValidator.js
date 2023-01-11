@@ -1,17 +1,36 @@
+/** Third party dependencies */
+const httpStatus = require('http-status');
+
+
+
 /** Local dependencies and libraries */
 const validators = require('../validators');
 
+
+
+/** Application declarations and configurations */
 const inBodyParameters = ['POST', 'PUT'];
 
 const inQueryParameters = ['GET'];
 
+
+
+/**
+ * Schema Validator middleware
+ * @param {String} validatorName 
+ * @param {import('express').Request} req Express Request object
+ * @param {import('express').Response} res Express Response object
+ * @param {import('express').NextFunction} next Express Next Function
+ * @returns {Promise<*>}
+ */
 const schemaValidatorPicker = async (validatorName, req, res, next) => {
     try {
         const { method, body, query } = req;
 
         const validatorToUse = validators[validatorName];
 
-        const parametersToUse = inBodyParameters.includes(method)
+        const parametersToUse = inBodyParameters
+            .includes(method)
             ? body
             : query;
 
@@ -24,15 +43,9 @@ const schemaValidatorPicker = async (validatorName, req, res, next) => {
 
         next();
     } catch (err) {
-        const useError = err.name || 'error-occured';
-
-        const { Error: { error, status } } = new ErrorsFactory({ message: useError });
-
-        response(res, error, status);
-
-        console.log(e);
-
-        next(e);
+       err.status_code = httpStatus.BAD_REQUEST;
+       
+       next(err);
     }
 
 }

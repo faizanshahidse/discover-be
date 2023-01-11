@@ -36,6 +36,8 @@
     "express-list-endpoints": "^6.0.0",
     "express-validator": "^6.13.0",
     "feed_media_433": "github:JOGO-FOOTBALL/homeMEDIA-Backend",
+    "http-status": "^1.6.2",
+    "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "matches_module_433": "github:JOGO-FOOTBALL/matches-module",
@@ -44,6 +46,8 @@
     "morgan": "^1.10.0",
     "nocache": "^3.0.4",
     "nodemon": "^2.0.18",
+    "redis": "^4.5.1",
+    "redis-om": "^0.3.6",
     "serverless-http": "^2.7.0",
     "serverless-plugin-scripts": "^1.0.2",
     "serverless-prune-plugin": "^2.0.1"
