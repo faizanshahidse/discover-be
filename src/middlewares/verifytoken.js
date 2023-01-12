@@ -1,6 +1,8 @@
 /** Third party dependencies and libarries */
 const JWT = require("jsonwebtoken");
 
+const httpStatus = require('http-status');
+
 
 
 /** Local dependencies and libaries */
@@ -14,7 +16,13 @@ const {
 } = process.env;
 
 
-const User = require('feed_media_433/models/User');
+const {
+    UserRead,
+} = require('../models/User');
+
+
+console.log(require('../models'))
+
 
 
 const verifyToken = async (req, res, next) => {
@@ -25,7 +33,12 @@ const verifyToken = async (req, res, next) => {
 
         JWT.verify(token, secret, async (err, userData) => {
             if (err) {
-                return res.status(200).send(apiFailedResponse('Forbidden', { err }, {}, 409));
+                return res
+                    .status(httpStatus.CONFLICT)
+                    .send(apiFailedResponse({
+                        ...err,
+                        status_code: httpStatus.CONFLICT
+                    }));
             }
 
 
@@ -33,12 +46,10 @@ const verifyToken = async (req, res, next) => {
                 return res
                     .status(200)
                     .send(
-                        apiFailedResponse(
-                            'Unauthorized',
-                            {},
-                            {},
-                            401
-                        )
+                        apiFailedResponse({
+                            ...err,
+                            status_code: httpStatus.UNAUTHORIZED
+                        })
                     );
             }
 
@@ -46,13 +57,20 @@ const verifyToken = async (req, res, next) => {
                 user: { id }
             } = userData;
 
-            const user_data = await User.findOne({
+            const user_data = await UserRead.findOne({
                 id,
                 deleted: false,
             });
 
             if (user_data == null) {
-                return res.status(200).send(apiFailedResponse('Unauthorized2', {}, {}, 401));
+                return res
+                    .status(httpStatus.UNAUTHORIZED)
+                    .send(
+                        apiFailedResponse({
+                            ...err,
+                            status_code: httpStatus.AUTHORIZED
+                        })
+                    );
             }
 
             Object.assign(
@@ -68,7 +86,9 @@ const verifyToken = async (req, res, next) => {
 
         });
     } else {
-        return res.status(200).send(apiFailedResponse('Unauthorized3', {}, {}, 401));
+        return res
+            .status(httpStatus.UNA)
+            .send(apiFailedResponse('Unauthorized', {}, {}, httpStatus.UNA));
     }
 };
 

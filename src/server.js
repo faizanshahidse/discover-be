@@ -6,18 +6,21 @@ const serverlesshttp = require('serverless-http');
 
 
 /** Initializing Organization packages */
-const HomeMedia = require('feed_media_433');
 
 
 
 /** Local dependencies and libraries */
-const { RedisClients } = require('./libraries')
+const { RedisClients } = require('./libraries');
+
+
+
+/** Initializng Models & DB */
+require('./models');
 
 
 
 /** Local configuration and declarations */
-// Initializing models via HomeMedia
-require('feed_media_433/models');
+
 
 // Initializng Redis OM Clients
 new RedisClients.StreamOM();

@@ -1,58 +1,82 @@
-/** Third party dependencies */
 const mongoose = require("mongoose");
 
-
-
-/** Organizational dependencies and packages */
-const dbConnection = require('feed_media_433/config/database');
-
-
-
-/** Application configuration and declarations */
-let db = dbConnection || null;
-
 const {
-  MONGOOSE_DEBUG = 'false',
-  MONGO_DB_HOST,
+    MONGO_DB: MONGO_DB_CORE,
+    MONGO_DB_AUTOREADNEAREST,
+    MONGO_DB_AUTOREADSECONDARY,
+    MONGO_DB_READ1,
+    MONGO_DB_READ2,
+    MONGO_DB_WRITE,
+    MONGO_DB_CORESECONDARYPREFERRED,
+    MONGO_DB_COREPRIMARYPREFERREDWMAJORITY,
+    MONGO_DB_COREPRIMARYPREFERREDW1,
+    MONGO_DB_COREPRIMARYPREFERREDW0,
+    MONGOOSE_DEBUG,
 } = process.env;
 
 
+/** Application configuration and declarations */
+const connectionStrings = {
+    MONGO_DB: MONGO_DB_CORE,
+    MONGO_DB_AUTOREADNEAREST,
+    MONGO_DB_AUTOREADSECONDARY,
+    MONGO_DB_READ1,
+    MONGO_DB_READ2,
+    MONGO_DB_WRITE,
+    MONGO_DB_CORESECONDARYPREFERRED,
+    MONGO_DB_COREPRIMARYPREFERREDWMAJORITY,
+    MONGO_DB_COREPRIMARYPREFERREDW1,
+    MONGO_DB_COREPRIMARYPREFERREDW0,
+    MONGOOSE_DEBUG,
+}
 
-const connection = () => {
-  try {
-    mongoose.set(
-      "debug",
-      JSON.parse(process.env.MONGOOSE_DEBUG)
-    );
-
-    if (db === null) {
-      db = mongoose.createConnection(MONGO_DB_HOST, {
-        minPoolSize: 0,
-        maxPoolSize: 1,
-        keepAlive: true,
-        connectTimeoutMS: 10000,
-        serverSelectionTimeoutMS: 10000,
-        maxIdleTimeMS: 10000,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-
-      db.on("connected", () => {
-        console.log("Mongo connection is up for Discover Module - main cluster.");
-      });
-
-      db.on("error", (err) => {
-        console.error("Unable to connect to the mongo db:", err);
-      });
-    }
-
-    return db;
-  } catch (err) {
-    console.log("Unable to connect to the mongo db:", err);
-    return err;
-  }
+let connection = {
 };
 
+const connectionNames = [
+    'coresecondarypreferred',
+    'coreprimarypreferredw1',
+    // 'coreprimarypreferredwmajority',
+];
+
+mongoose.set('debug', JSON.parse(MONGOOSE_DEBUG));
+
+for (let name of connectionNames) {
+    const uppercaseName = name.toUpperCase();
+
+    const useConnectionName = `connection_${uppercaseName}`;
+
+    if (!connection[useConnectionName]) {
+
+        const connectionString = connectionStrings[`MONGO_DB_${uppercaseName}`] ||
+            connectionStrings[`MONGO_DB_AUTO_${uppercaseName}`];
 
 
-module.exports = connection();
+        connection[useConnectionName] = mongoose.createConnection(
+            connectionString,
+            {
+                maxPoolSize: 1,
+                minPoolSize: 0,
+                maxIdleTimeMS: 10000,
+                connectTimeoutMS: 10000,
+                serverSelectionTimeoutMS: 10000,
+                serverSelectionTimeoutMS: 0,
+                useNewUrlParser: true,
+                useUnifiedTopology: true
+            }
+        );
+
+        const connectionSet = connection[useConnectionName];
+
+        connectionSet.on('connected', console.log.bind(this, `DB CONNECTED via ${uppercaseName}`));
+
+        connectionSet.on('error', (err) => {
+            console.log(`DB ERROR via ${uppercaseName}`);
+            console.log(err);
+        });
+
+        connectionSet.on('disconnected', console.log.bind(this, `DB DISCONNECTED from ${uppercaseName}`));
+    }
+}
+
+module.exports = connection;
