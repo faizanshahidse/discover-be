@@ -110,7 +110,7 @@ module.exports = {
                     /*
                      * The base URL Scribe will make requests to. This should be the URL (+ port) you run on localhost.
                      */
-                    baseUrl: "http://localhost:3000",
+                    baseUrl: "http://localhost:3001",
                     /*
                      * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
                      * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.

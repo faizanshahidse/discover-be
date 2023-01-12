@@ -8,7 +8,7 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 // const rootRouter = express.Router(); // eslint-disable-line new-cap
 
-const { router: StreamRouter } = require('../modules/stream/stream.routes');
+const StreamRouter = require('../modules/stream/stream.routes');
 
 
 
@@ -73,7 +73,4 @@ router
 //             .bind(null, { parentRouter: 'root' })
 //     );
 
-module.exports = {
-    router,
-    // rootRouter,
-};
+module.exports = router;

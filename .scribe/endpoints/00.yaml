@@ -84,7 +84,7 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 401
         description: ''
         headers:
           access-control-allow-origin: '*'

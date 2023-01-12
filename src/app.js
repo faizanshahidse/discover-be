@@ -110,10 +110,7 @@ if (process.env.NODE_ENV == AppConfig.environments.list.DEVLOCAL)
 
 
 /** Local configuration exports & modules */
-const {
-  router,
-  // rootRouter,
-} = require('./routes');
+const router = require('./routes');
 
 
 

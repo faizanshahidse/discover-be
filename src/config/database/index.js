@@ -1,4 +1,12 @@
+/** Third party packages */
 const mongoose = require("mongoose");
+
+const dotenv = require('dotenv');
+
+
+/** Application configuration and declarations */
+
+dotenv.config();
 
 const {
     MONGO_DB: MONGO_DB_CORE,
@@ -15,7 +23,6 @@ const {
 } = process.env;
 
 
-/** Application configuration and declarations */
 const connectionStrings = {
     MONGO_DB: MONGO_DB_CORE,
     MONGO_DB_AUTOREADNEAREST,
@@ -40,6 +47,9 @@ const connectionNames = [
 ];
 
 mongoose.set('debug', JSON.parse(MONGOOSE_DEBUG));
+
+
+
 
 for (let name of connectionNames) {
     const uppercaseName = name.toUpperCase();

@@ -12,7 +12,7 @@
         "name": "Discover BE Documentation",
         "description": "",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-        "_postman_id": "4be6a187-091a-406d-ac5c-1c7132258a5a"
+        "_postman_id": "53b8048e-4cfb-4a9f-906b-e4f0f50a6d10"
     },
     "item": [
         {
@@ -204,7 +204,7 @@
                                     "value": "Accept-Encoding"
                                 }
                             ],
-                            "code": 200,
+                            "code": 401,
                             "body": "{\n    \"response\": false,\n    \"status_code\": 500,\n    \"message\": \"error\",\n    \"data\": {},\n    \"status\": \"error\",\n    \"isOperational\": true\n}",
                             "name": ""
                         }
