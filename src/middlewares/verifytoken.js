@@ -87,8 +87,8 @@ const verifyToken = async (req, res, next) => {
         });
     } else {
         return res
-            .status(httpStatus.UNA)
-            .send(apiFailedResponse('Unauthorized', {}, {}, httpStatus.UNA));
+            .status(httpStatus.UNAUTHORIZED)
+            .send(apiFailedResponse('Unauthorized', {}, {}, httpStatus.UNAUTHORIZED));
     }
 };
 
