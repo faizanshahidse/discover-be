@@ -36,7 +36,10 @@ const streamListing = async (query, options) => {
 
     /** Transforming data according to Discover stream requirements */
     const {
-        data: { records: newsData }
+        data: {
+            records: newsData,
+            ...rest
+        }
     } = newsResponse;
 
     const { data: matchesData, } = matchesResponse;
@@ -64,7 +67,7 @@ const streamListing = async (query, options) => {
         const isSeventhElementAfterFirst = +index && !seventhElementFactor;
 
         /** Resetting matches iterations if News counts is larger */
-        if(!matchesData[iterations.matches])
+        if (!matchesData[iterations.matches])
             iterations.matches = 0;
 
         document = isSeventhElementAfterFirst
@@ -78,15 +81,14 @@ const streamListing = async (query, options) => {
 
         const { id } = document;
 
-        responseToBuild.push({
-            type,
-            document,
-            id,
-        });
-    }
+        responseToBuild.push(type);
+}
 
 
-    return responseToBuild;
+return {
+    streamData: responseToBuild,
+    ...rest,
+};
 }
 
 
