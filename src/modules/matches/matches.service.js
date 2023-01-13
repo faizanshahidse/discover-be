@@ -31,6 +31,8 @@ const {
     }
 } = microservices;
 
+const { getURL, getImageFromS3 } = require('../../helper')
+
 
 
 
@@ -77,7 +79,22 @@ const matchesListing = async (options) => {
     return listing;
 }
 
+const getLeagueBackgroundImage = async (league_id) => {
+    const leagueFileName =  `background/${league_id}.jpg`;
+    const folder = 'league';
+
+    let background_image = await getImageFromS3(leagueFileName, folder);
+
+    if (!background_image) {
+        const defaultFileName = 'background/generic.jpg';
+        background_image = await getURL(defaultFileName, folder)
+    }
+
+    return background_image;
+  }
+
 
 module.exports = {
     matchesListing,
+    getLeagueBackgroundImage
 }
