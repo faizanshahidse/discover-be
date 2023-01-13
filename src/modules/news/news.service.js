@@ -46,7 +46,8 @@ const newsListing = async (query, options) => {
 
     /** Integrated logic to complete query for News microservice */
     // Adding in required from attribute
-    query.from = 0;
+    if (!query.from)
+        query.from = 0;
 
 
     for (let attribute in query) {
