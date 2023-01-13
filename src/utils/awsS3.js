@@ -14,18 +14,23 @@ AWS.config.update({
 });
 
 
-  const get = (key) => {
-    const s3 = new AWS.S3();
-    return new Promise((resolve, reject) => {
-      let params = { Bucket: S3_BUCKET, Key: key };
-      return s3.getObject(params, function (err, data) {
-        if (err && err.code === 'NoSuchKey') resolve(undefined);
-        if (err && err.code !== 'NoSuchKey') console.log(err);
-        resolve(data);
-      });
+const get = (key) => {
+  const s3 = new AWS.S3();
+  return new Promise((resolve, reject) => {
+    let params = { Bucket: S3_BUCKET, Key: key };
+    
+    return s3.getObject(params, function (err, data) {
+      if (err && err.code === 'NoSuchKey')
+        resolve(undefined);
+
+      if (err && err.code !== 'NoSuchKey')
+        console.log(err);
+
+      resolve(data);
     });
-  }
+  });
+}
 
 module.exports = {
-    get
+  get
 }

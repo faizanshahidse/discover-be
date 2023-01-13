@@ -46,7 +46,8 @@ const newsListing = async (query, options) => {
 
     /** Integrated logic to complete query for News microservice */
     // Adding in required from attribute
-    query.from = 0;
+    if (!query.from)
+        query.from = 0;
 
 
     for (let attribute in query) {
@@ -58,12 +59,21 @@ const newsListing = async (query, options) => {
     uri.pathname = newsListingsPath;
 
 
-    const listing = await homemediaBridge.getHttp({
+    const newsResponse = await homemediaBridge.getHttp({
         url: uri.toString(),
         authorized,
-    })
+    });
 
-    return listing;
+
+    /** Transforming data according to Discover stream requirements */
+    const {
+        data: {
+            records: newsListing,
+            ...newsMeta
+        }
+    } = newsResponse;
+
+    return { newsListing, newsMeta };
 }
 
 
