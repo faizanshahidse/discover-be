@@ -59,13 +59,16 @@ const streamListing = async (query, options) => {
          * @description Business logic for every 6th element to matches
          * @note REMOVE: Hardcoded startegy - kindly bear with - this is for rapid delivery for PoC purposes
          */
-        const seventhElementFactor = +index % 6;
+        index = +index;
+
+        const seventhElementFactor = (index + 1) % 7;
 
         let document;
         let type;
 
-        const isSeventhElementAfterFirst = +index && !seventhElementFactor;
+        const isSeventhElementAfterFirst = index && !seventhElementFactor;
 
+        
         /** Resetting matches iterations if News counts is larger */
         if (!matchesData[iterations.matches])
             iterations.matches = 0;
@@ -81,7 +84,7 @@ const streamListing = async (query, options) => {
 
         const { id } = document;
 
-        responseToBuild.push(type);
+        responseToBuild.push(type.concat(` ${index}`));
 }
 
 
