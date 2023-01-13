@@ -1,11 +1,11 @@
 /** Local dependencies and objects */
 const {
-    newsListing,
+    newsListing: retrieveNewsListing,
 } = require('../news/news.service');
 
 
 const {
-    matchesListing,
+    matchesListing: retrieveMatchesListing,
 } = require('../matches/matches.service');
 const { response } = require('express');
 
@@ -26,23 +26,12 @@ const buildStream = async () => {
  */
 const streamListing = async (query, options) => {
     const [
-        newsResponse,
-        matchesResponse,
+        { newsListing, newsMeta },
+        matchesListing,
     ] = await Promise.all([
-        newsListing(query, options),
-        matchesListing(options),
+        retrieveNewsListing(query, options),
+        retrieveMatchesListing(options),
     ]);
-
-
-    /** Transforming data according to Discover stream requirements */
-    const {
-        data: {
-            records: newsData,
-            ...rest
-        }
-    } = newsResponse;
-
-    const { data: matchesData, } = matchesResponse;
 
 
     const responseToBuild = [];
@@ -54,7 +43,7 @@ const streamListing = async (query, options) => {
     }
 
 
-    for (let index in newsData) {
+    for (let index in newsListing) {
         /** 
          * @description Business logic for every 6th element to matches
          * @note REMOVE: Hardcoded startegy - kindly bear with - this is for rapid delivery for PoC purposes
@@ -68,14 +57,14 @@ const streamListing = async (query, options) => {
 
         const isSeventhElementAfterFirst = index && !seventhElementFactor;
 
-        
+
         /** Resetting matches iterations if News counts is larger */
-        if (!matchesData[iterations.matches])
+        if (!matchesListing[iterations.matches])
             iterations.matches = 0;
 
         document = isSeventhElementAfterFirst
-            ? matchesData[iterations.matches++]
-            : newsData[iterations.news++];
+            ? matchesListing[iterations.matches++]
+            : newsListing[iterations.news++];
 
         type = isSeventhElementAfterFirst
             ? 'match'
@@ -89,13 +78,13 @@ const streamListing = async (query, options) => {
             document,
             id,
         });
-}
+    }
 
 
-return {
-    streamData: responseToBuild,
-    ...rest,
-};
+    return {
+        streamData: responseToBuild,
+        ...newsMeta,
+    };
 }
 
 

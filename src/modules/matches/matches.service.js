@@ -70,17 +70,42 @@ const matchesListing = async (options) => {
     }
 
 
-    const listing = await matchesBridge.getHttp({
-        url: uri.toString(),
-        authorized,
-        secure: false,
-    })
+    // Retrieving Matches Listing
+    let matchesResponse = await matchesBridge
+        .getHttp({
+            url: uri.toString(),
+            authorized,
+            secure: false,
+        });
 
-    return listing;
+
+    let { data: matchesListing, } = matchesResponse;
+
+
+    // Retrieving images for Clubs for a specific league
+    matchesListing = await Promise.all(
+        matchesListing
+            .map(async match => {
+                const { tournament_templateFK: leagueId } = match;
+
+                const clubImage = await getLeagueBackgroundImage(leagueId);
+
+                Object.assign(
+                    match,
+                    { clubImage },
+                )
+
+                return match;
+            })
+    )
+
+    return matchesListing ;
 }
 
+
+
 const getLeagueBackgroundImage = async (league_id) => {
-    const leagueFileName =  `background/${league_id}.jpg`;
+    const leagueFileName = `background/${league_id}.jpg`;
     const folder = 'league';
 
     let background_image = await getImageFromS3(leagueFileName, folder);
@@ -91,7 +116,7 @@ const getLeagueBackgroundImage = async (league_id) => {
     }
 
     return background_image;
-  }
+}
 
 
 module.exports = {
