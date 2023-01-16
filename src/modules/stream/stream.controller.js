@@ -34,6 +34,12 @@ const streamListingController = async (req, res, next) => {
 }
 
 
+/**
+ * @note A deployment for Media engine used the serverless.yml for Discover BE - ended up replacing it.
+ * This commit is to fix the latest deployment to TE-515, TE-516.
+ */
+
+
 module.exports = {
     streamListingController,
 }
