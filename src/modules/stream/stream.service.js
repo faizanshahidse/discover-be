@@ -26,11 +26,11 @@ const buildStream = async () => {
  */
 const streamListing = async (query, options) => {
     const [
-        { newsListing, newsMeta },
-        matchesListing,
+        { newsListing = [], newsMeta },
+        matchesListing = [],
     ] = await Promise.all([
         retrieveNewsListing(query, options),
-        retrieveMatchesListing(options),
+        retrieveMatchesListing(query, options),
     ]);
 
 
@@ -62,11 +62,11 @@ const streamListing = async (query, options) => {
         if (!matchesListing[iterations.matches])
             iterations.matches = 0;
 
-        document = isSeventhElementAfterFirst
+        document = isSeventhElementAfterFirst && matchesListing.length
             ? matchesListing[iterations.matches++]
             : newsListing[iterations.news++];
 
-        type = isSeventhElementAfterFirst
+        type = isSeventhElementAfterFirst && matchesListing.length
             ? 'match'
             : 'news';
 
@@ -83,7 +83,7 @@ const streamListing = async (query, options) => {
 
     return {
         streamData: responseToBuild,
-        ...newsMeta,
+        // ...newsMeta,
     };
 }
 

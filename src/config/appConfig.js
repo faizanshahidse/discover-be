@@ -48,7 +48,7 @@ const microservices = {
         endpoint: MATCHES_ENDPOINT,
         features: {
             events: {
-                details: { path: '/api/matches/matches-details' }
+                details: { path: '/api/matches/get-today-matches-of-top-favourite-teams' }
             },
         }
     },

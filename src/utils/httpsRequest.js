@@ -3,6 +3,8 @@ const https = require('https');
 
 const http = require('http');
 
+const { isJsonString } = require('./common');
+
 
 /** Application configuration and declartions */
 const httpConfig = {
@@ -51,11 +53,14 @@ const httpsRequest = (options = {}) => {
     let { token: Authorization } = authorized;
 
     Authorization = `Bearer ${Authorization}`;
+    const content_type = {
+      'Content-Type': 'application/json'
+    }
 
     Object.assign(
       rest,
       {
-        headers: { Authorization }
+        headers: { Authorization, ...content_type }
       }
     );
   }
@@ -76,7 +81,7 @@ const httpsRequest = (options = {}) => {
         //the whole response has been received, so we just print it out here
         response
           .on('end', () => {
-            const responseObject = JSON.parse(str);
+            const responseObject = isJsonString(str) && JSON.parse(str);
 
             const { status_code, error_msgs } = responseObject;
 
