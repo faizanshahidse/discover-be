@@ -58,7 +58,6 @@ const newsListing = async (query, options) => {
 
     uri.pathname = newsListingsPath;
 
-
     const newsResponse = await homemediaBridge.getHttp({
         url: uri.toString(),
         authorized,
@@ -68,7 +67,7 @@ const newsListing = async (query, options) => {
     /** Transforming data according to Discover stream requirements */
     const {
         data: {
-            records: newsListing,
+            records: newsListing = [],
             ...newsMeta
         }
     } = newsResponse;

@@ -16,7 +16,12 @@ const errorMessages = {
  * @param {numeber} data.limit - Pagination limit
  */
 const streamQuery = async (data) => {
-    const streamValidator = joi.object();
+    const streamValidator = joi.object({
+        limit: joi.string().required(),
+        from: joi.string().required(),
+        tz: joi.string().required(),
+        top_favourite_teams: joi.string().required()
+    });
 
     const { error, ...rest } = await streamValidator.validate(data);
 
