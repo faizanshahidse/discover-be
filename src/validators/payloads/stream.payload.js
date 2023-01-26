@@ -17,8 +17,8 @@ const errorMessages = {
  */
 const streamQuery = async (data) => {
     const streamValidator = joi.object({
-        // limit: joi.string().required(),
-        // from: joi.string().required(),
+        limit: joi.string().required(),
+        from: joi.string().required(),
         tz: joi.string().required(),
         top_favourite_teams: joi.string().required()
     });
