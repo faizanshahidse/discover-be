@@ -8,7 +8,7 @@ const { isJsonString } = require('./common');
 
 /** Application configuration and declartions */
 const httpConfig = {
-  timeout: 3000,
+  timeout: 10000,
 }
 
 const {
