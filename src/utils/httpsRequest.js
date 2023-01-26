@@ -82,6 +82,7 @@ const httpsRequest = (options = {}) => {
         response
           .on('end', () => {
             const responseObject = isJsonString(str) && JSON.parse(str);
+            console.log('str...', str);
 
             const { status_code, error_msgs } = responseObject;
 

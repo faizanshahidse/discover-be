@@ -57,6 +57,8 @@ const matchesListing = async (query, options) => {
 
     uri = uri.toString();
 
+    console.log('uri...', uri);
+
     // Retrieving Matches Listing
     let matchesResponse = await matchesBridge
         .getHttp({
