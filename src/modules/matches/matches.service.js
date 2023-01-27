@@ -12,6 +12,8 @@ const {
     }
 } = require('../../config');
 
+const { SECURE } = process.env;
+
 
 
 /** Application configuration and declarations */
@@ -64,6 +66,7 @@ const matchesListing = async (query, options) => {
         .getHttp({
             url: uri.toString(),
             authorized,
+            secure: SECURE == 'true'
         });
 
 
