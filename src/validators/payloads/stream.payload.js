@@ -29,7 +29,7 @@ const streamQuery = async (data) => {
 
 
     const streamValidator = joi.object({
-        limit: joi.number().required(),
+        limit: joi.number().required().min(1),
         from: joi.number().optional(),
         tz: joi.string().required().custom((value, helper) => {
             if(isValidTimeZone(value)) return true;
