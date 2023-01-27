@@ -5,6 +5,7 @@ const { validationResult } = require("express-validator");
 
 const apiFailedResponse = (errorObject) => {
   const {
+    name = '',
     message = 'error',
     data = {},
     error_messages,
@@ -15,6 +16,7 @@ const apiFailedResponse = (errorObject) => {
   return {
     response: false,
     status_code: status_code,
+    name,
     message,
     error_msgs: error_messages,
     data,

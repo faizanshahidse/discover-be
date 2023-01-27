@@ -88,7 +88,7 @@ const verifyToken = async (req, res, next) => {
     } else {
         return res
             .status(httpStatus.UNAUTHORIZED)
-            .send(apiFailedResponse('Unauthorized', {}, {}, httpStatus.UNAUTHORIZED));
+            .send(apiFailedResponse({message: 'Unauthorized', status_code: httpStatus.UNAUTHORIZED}));
     }
 };
 
