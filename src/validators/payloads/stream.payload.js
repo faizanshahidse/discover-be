@@ -30,7 +30,7 @@ const streamQuery = async (data) => {
 
     const streamValidator = joi.object({
         limit: joi.number().required(),
-        from: joi.number().required(),
+        from: joi.number().optional(),
         tz: joi.string().required().custom((value, helper) => {
             if(isValidTimeZone(value)) return true;
             else return helper.message('invalid timezone param');
