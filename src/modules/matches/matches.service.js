@@ -64,7 +64,6 @@ const matchesListing = async (query, options) => {
         .getHttp({
             url: uri.toString(),
             authorized,
-            secure: false,
         });
 
 
