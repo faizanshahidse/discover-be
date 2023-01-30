@@ -31,6 +31,8 @@ const {
     }
 } = microservices;
 
+const { SECURE } = process.env;
+
 
 
 
@@ -61,6 +63,7 @@ const newsListing = async (query, options) => {
     const newsResponse = await homemediaBridge.getHttp({
         url: uri.toString(),
         authorized,
+        secure: SECURE == 'true'
     });
 
 
