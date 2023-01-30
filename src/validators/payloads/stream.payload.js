@@ -35,7 +35,8 @@ const streamQuery = async (data) => {
             if(isValidTimeZone(value)) return true;
             else return helper.message('invalid timezone param');
         }),
-        top_favourite_teams: joi.number().required().min(1)
+        top_favourite_teams: joi.number().required().min(1),
+        last_page_record_id: joi.string().optional(),
     });
 
     const { error, ...rest } = await streamValidator.validate(data);
