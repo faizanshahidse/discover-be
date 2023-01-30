@@ -136,9 +136,16 @@ app.use(async function (err, req, res, next) {
       await Sentry.flush();
     }
 
-    const statusCode = res.statusCode === 200
+    let statusCode = res.statusCode === 200
       ? err.status_code || 500
       : res.statusCode;
+
+      if(Array.isArray(err)) {
+        const key = Object.keys(err[0] || {})[0];
+        statusCode = 422;
+        err.status_code = 422;
+        err.message = err[0][key];
+      }
 
     const responseToSend = apiFailedResponse(err);
 
